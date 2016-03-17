@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Flag
   - WinZone
+  - Enemy
   layers:
   - Default
   - TransparentFX
