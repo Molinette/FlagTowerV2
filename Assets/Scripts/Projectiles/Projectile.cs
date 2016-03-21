@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Projectile : MonoBehaviour {
+public abstract class Projectile : IProjectile, MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public float damage;
+	public float initialSpeed;
 }

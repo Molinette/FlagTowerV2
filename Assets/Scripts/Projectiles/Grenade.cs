@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Grenade : MonoBehaviour {
+public class Grenade : Explosive, Projectile, MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public float getDamage(){
+
+		return damage;
 	}
 }

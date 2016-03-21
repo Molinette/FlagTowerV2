@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Explosive : MonoBehaviour {
+public abstract class Explosive : Projectile, MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public float explosionRadius;
+	public Animator explosionAnimation;
 }

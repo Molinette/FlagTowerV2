@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Missile : MonoBehaviour {
+public class Missile : Explosive, Projectile, MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	public float missileAcceleration;
+
+	public float getDamage(){
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		return damage;
 	}
 }
