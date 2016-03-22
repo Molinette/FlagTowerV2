@@ -6,39 +6,73 @@ public class PlayerUIManager : MonoBehaviour {
 
     public Text LevelsText;
 
-    private string[] PossibleUpgrades;
-
     private int playerLevel;
-    private int meleeLevel;
-    private int pistolLevel;
+    
+    private int katanaLevel;
+
+    private int pistolAmmo;
     private int rifleLevel;
     private int shotgunLevel;
-    private int explosivesLevel;
+
+    private int rpgLevel;
+    private int grenadeLevel;
+    private int grenadeLauncherLevel;
+    private int mineAmmo;
 
     public void Start()
     {
-        meleeLevel = 1;
-        pistolLevel = 1;
+        playerLevel = 1;
+
+        katanaLevel = 1;
+        pistolAmmo = 1;
         rifleLevel = 1;
         shotgunLevel = 1;
-        explosivesLevel = 1;
+        rpgLevel = 1;
+        grenadeLevel = 1;
+        grenadeLauncherLevel = 1;
+        mineAmmo = 1;
+    }
 
-        LevelsText.text = "Player Level: " + playerLevel + "\n"
-            + "Melee Level: " + meleeLevel + "\n"
-            + "Pistol Level: " + pistolLevel + "\n"
-            + "Rifle Level: " + rifleLevel + "\n"
-            + "Shotgun Level: " + shotgunLevel + "\n"
-            + "Explosives Level: " + explosivesLevel;
-
+    public void Update()
+    {
+        LevelsText.text = "Player Level: " + playerLevel + "\n" + "\n"
+            + "Katana Level: " + katanaLevel + "\n" + "\n"
+            + "Pistol Ammo: " + pistolAmmo + "\n" + "\n"
+            + "Mines  Level: " + mineAmmo;
     }
 
     public void RaiseLevel(string upgrade)
     {
-
+        switch (upgrade)
+        {
+            case "Katana":
+                katanaLevel++;
+                break;
+            case "Pistol":
+                pistolAmmo++;
+                break;
+            case "Rifle":
+                rifleLevel++;
+                break;
+            case "Shotgun":
+                shotgunLevel++;
+                break;
+            case "RPG":
+                rpgLevel++;
+                break;
+            case "Grenade":
+                grenadeLevel++;
+                break;
+            case "GrenadeLauncher":
+                grenadeLauncherLevel++;
+                break;
+            case "Mine":
+                mineAmmo++;
+                //
+                break;
+            default:
+                break;
+        }
     }
 
-    private void SetPossibleUpgrades()
-    {
-
-    }
 }

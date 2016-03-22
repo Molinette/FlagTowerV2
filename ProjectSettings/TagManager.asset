@@ -10,6 +10,8 @@ TagManager:
   - Bullet
   - Flag
   - WinZone
+  - InventoryButton
+  - ShopButton
   layers:
   - Default
   - TransparentFX
