@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Flag
   - WinZone
+  - TrapZone
   layers:
   - Default
   - TransparentFX
@@ -21,10 +22,10 @@ TagManager:
   - 
   - Ground
   - Character
-  - Monster
+  - Enemy
   - Flag
-  - 
-  - 
+  - TrapZone
+  - TrapGround
   - 
   - 
   - 
