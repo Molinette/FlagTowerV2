@@ -32,7 +32,8 @@ public class Placeable : MonoBehaviour {
 				hit = Physics2D.Raycast(mouseWorldPosition,Vector2.down, Mathf.Infinity, 1 << placeableZoneLayer);
 				transform.position = new Vector2(Mathf.Floor(mouseWorldPosition.x)+bounds.x/2,hit.point.y+bounds.y/2);
 				if(Input.GetMouseButtonDown(1)){
-					GameObject.Instantiate(trapPrefab,transform.position, Quaternion.Euler(trapPrefab.transform.eulerAngles));
+					GameObject.Instantiate(trapPrefab,new Vector2(transform.position.x,transform.position.y-bounds.y/2),
+						Quaternion.Euler(trapPrefab.transform.eulerAngles));
 				}
 			} else{
 				transform.position = new Vector2(mouseWorldPosition.x,mouseWorldPosition.y);
