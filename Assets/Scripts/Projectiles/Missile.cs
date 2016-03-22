@@ -1,12 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Missile : Explosive, Projectile, MonoBehaviour {
+public class Missile : Explosive {
 
 	public float missileAcceleration;
-
-	public float getDamage(){
-	
-		return damage;
-	}
 }

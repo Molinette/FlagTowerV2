@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Grenade : Explosive, Projectile, MonoBehaviour {
+public class Grenade : Explosive {
 
-	public float getDamage(){
-
-		return damage;
-	}
 }

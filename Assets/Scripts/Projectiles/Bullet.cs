@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : Projectile, MonoBehaviour {
+public class Bullet : Projectile{
 
-	public float getDamage(){
-	
-		return damage;
-	}
 }
