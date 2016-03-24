@@ -10,8 +10,13 @@ TagManager:
   - Bullet
   - Flag
   - WinZone
+<<<<<<< HEAD
   - TrapZone
   - Enemy
+=======
+  - InventoryButton
+  - ShopButton
+>>>>>>> UI_Sebastien
   layers:
   - Default
   - TransparentFX
