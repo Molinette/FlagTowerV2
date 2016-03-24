@@ -71,7 +71,7 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     if (itemPrices[SHOTGUN] <= 1000)
                     {
-                        itemPrices[SHOTGUN] = 25;
+                        itemPrices[SHOTGUN] = 75;
                     }
                     inventory[SHOTGUN] += 8;
                     inventoryButtons[SHOTGUN].GetComponent<ButtonPlayerAction>().RefreshText(inventory[SHOTGUN].ToString());
@@ -82,7 +82,7 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     if (itemPrices[RPG] <= 1000)
                     {
-                        itemPrices[RPG] = 25;
+                        itemPrices[RPG] = 200;
                     }
                     inventory[RPG] += 1;
                     inventoryButtons[RPG].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RPG].ToString());
@@ -93,7 +93,7 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     if (itemPrices[GRENADE] <= 1000)
                     {
-                        itemPrices[GRENADE] = 25;
+                        itemPrices[GRENADE] = 150;
                     }
                     inventory[GRENADE] += 2;
                     inventoryButtons[GRENADE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[GRENADE].ToString());
@@ -104,7 +104,7 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     if (itemPrices[GRENADELAUNCHER] <= 1000)
                     {
-                        itemPrices[GRENADELAUNCHER] = 25;
+                        itemPrices[GRENADELAUNCHER] = 150;
                     }
                     inventory[GRENADELAUNCHER] += 1;
                     inventoryButtons[GRENADELAUNCHER].GetComponent<ButtonPlayerAction>().RefreshText(inventory[GRENADELAUNCHER].ToString());
@@ -115,7 +115,7 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     if (itemPrices[MINE] <= 1000)
                     {
-                        itemPrices[MINE] = 25;
+                        itemPrices[MINE] = 175;
                     }
                     inventory[MINE] += 2;
                     inventoryButtons[MINE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[MINE].ToString());
