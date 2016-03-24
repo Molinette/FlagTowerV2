@@ -11,12 +11,16 @@ TagManager:
   - Flag
   - WinZone
 <<<<<<< HEAD
+<<<<<<< HEAD
   - TrapZone
   - Enemy
 =======
   - InventoryButton
   - ShopButton
 >>>>>>> UI_Sebastien
+=======
+  - Enemy
+>>>>>>> JidiComportementBalle
   layers:
   - Default
   - TransparentFX
