@@ -131,11 +131,11 @@ public class MonsterMovement : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
-		if (collider.gameObject.CompareTag ("Flag")) {
-			collider.transform.parent = gameObject.transform;
-			collider.transform.position = flagHoldingPos.transform.position;
-			collider.GetComponent<Rigidbody2D>().isKinematic = true;
-			collider.enabled = false;
+
+		if (collider.CompareTag ("Flag")) {
+			collider.transform.parent.transform.parent = gameObject.transform;
+            collider.transform.parent.position = flagHoldingPos.transform.position;
+            collider.transform.parent.GetComponent<Rigidbody2D>().isKinematic = true;
 			hasFlag = true;
 			movingState = MovingStates.StealFlag;
 		}

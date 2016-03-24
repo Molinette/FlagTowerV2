@@ -12,7 +12,7 @@ GameObject:
   - 50: {fileID: 5083272}
   - 60: {fileID: 6060132}
   - 114: {fileID: 11490626}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GrenadePrototype
   m_TagString: Untagged
   m_Icon: {fileID: 0}

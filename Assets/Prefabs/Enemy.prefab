@@ -10,8 +10,7 @@ GameObject:
   - 4: {fileID: 419132}
   - 50: {fileID: 5004056}
   - 114: {fileID: 11416838}
-  - 114: {fileID: 11457220}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -26,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490682}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: FlagHoldingPos
   m_TagString: Untagged
   m_Icon: {fileID: -3545028842045912814, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 468800}
   - 212: {fileID: 21279204}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: bodySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +57,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 482114}
   - 58: {fileID: 5859120}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: bottomCollider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -74,7 +73,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 470402}
   - 61: {fileID: 6127404}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: topCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +89,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 467816}
   - 61: {fileID: 6140676}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: PlatformDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,17 +249,6 @@ MonoBehaviour:
   breakingAcceleration: 16
   jumpingForce: 15
   flagHoldingPos: {fileID: 490682}
---- !u!114 &11457220
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a68b612ba1e824c985b0a36e6ce5f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21279204
 SpriteRenderer:
   m_ObjectHideFlags: 1

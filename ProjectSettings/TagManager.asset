@@ -5,22 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Character
-  - Platform
-  - PathNode
-  - Bullet
-  - Flag
+  - Enemy
   - WinZone
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - TrapZone
-  - Enemy
-=======
-  - InventoryButton
+  - Flag
   - ShopButton
->>>>>>> UI_Sebastien
-=======
-  - Enemy
->>>>>>> JidiComportementBalle
+  - PathNode
+  - Platform
+  - InventoryButton
   layers:
   - Default
   - TransparentFX
@@ -31,13 +22,13 @@ TagManager:
   - 
   - 
   - Ground
-  - Character
-  - Enemy
-  - Flag
+  - 
+  - 
+  - 
   - TrapZone
   - TrapGround
-  - 
-  - 
+  - Projectile
+  - Uncollide
   - 
   - 
   - 
