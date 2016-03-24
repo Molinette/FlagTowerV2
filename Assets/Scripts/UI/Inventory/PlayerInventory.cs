@@ -13,22 +13,22 @@ public class PlayerInventory : MonoBehaviour {
     private const int GRENADELAUNCHER = 6;
     private const int MINE = 7;
 
-    private int money = 5000;
+    private int money = 50000;
 
     private int[] inventory = new int[8];
 
     private int[] itemPrices = new int[8];
 
     private GameObject[] inventoryButtons;
-    private GameObject[] shopButtons;
 
     public Text moneyText;
 
     public void Start()
     {
         inventoryButtons = GameObject.FindGameObjectsWithTag("InventoryButton");
-        shopButtons = GameObject.FindGameObjectsWithTag("ShopButton");
-        //Array.Sort(inventory, CompareObNames);
+        Array.Sort(inventoryButtons, CompareObNames);
+
+
 
         itemPrices[KATANA] = 1000;
         itemPrices[RIFLE] = 1000;
@@ -47,7 +47,7 @@ public class PlayerInventory : MonoBehaviour {
         {
             case "Katana":
                 if (Pay(itemPrices[KATANA])) {
-                    if (itemPrices[KATANA] <= 1000)
+                    if (itemPrices[KATANA] == 1000)
                     {
                         inventory[KATANA] += 1;
                         inventoryButtons[KATANA].GetComponent<ButtonPlayerAction>().RefreshText(inventory[KATANA].ToString());
@@ -149,5 +149,28 @@ public class PlayerInventory : MonoBehaviour {
     private void refreshMoneyText()
     {
         moneyText.text = money.ToString() + "$";
+    }
+
+    public int getPrice(string item)
+    {
+        switch (item)
+        {
+            case "Katana":
+                return itemPrices[KATANA];
+            case "Rifle":
+                return itemPrices[RIFLE];
+            case "Shotgun":
+                return itemPrices[SHOTGUN];
+            case "RPG":
+                return itemPrices[RPG];
+            case "Grenade":
+                return itemPrices[GRENADE];
+            case "GrenadeLauncher":
+                return itemPrices[GRENADELAUNCHER];
+            case "Mine":
+                return itemPrices[MINE];
+            default:
+                return 0;
+        }
     }
 }
