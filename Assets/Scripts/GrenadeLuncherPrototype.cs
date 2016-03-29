@@ -9,15 +9,19 @@ public class GrenadeLuncherPrototype : MonoBehaviour {
 	public GameObject bullet;
 	private float currentThrowingForce;
 	GameObject bulletInstance;
+    private AudioSource source;
+    public AudioClip shootSound;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Awake()
+    {
 
+        source = GetComponent<AudioSource>();
 
-	}
+    }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		Vector2 shootingDirection;
 		Vector3 mousePosition;
 
@@ -34,8 +38,10 @@ public class GrenadeLuncherPrototype : MonoBehaviour {
 		}
 
 		if(Input.GetMouseButtonUp(0)){
-			//Instance the bullet and give it an initial speed in the direction of the mouse
-			bulletInstance = (GameObject)Instantiate(bullet, firingPosition.position, firingPosition.rotation);
+
+            source.PlayOneShot(shootSound, 1F);
+            //Instance the bullet and give it an initial speed in the direction of the mouse
+            bulletInstance = (GameObject)Instantiate(bullet, firingPosition.position, firingPosition.rotation);
 			bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootingDirection.normalized * currentThrowingForce,ForceMode2D.Impulse);
 		}
 	}
