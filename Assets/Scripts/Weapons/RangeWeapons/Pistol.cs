@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Pistol : RangeWeapons {
 
+	Bullet bullet;
+
+
 	void Update () {
 
 		mousePosition = Input.mousePosition;

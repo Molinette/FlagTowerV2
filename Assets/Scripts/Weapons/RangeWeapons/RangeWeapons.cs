@@ -3,12 +3,11 @@ using System.Collections;
 
 public class RangeWeapons : MonoBehaviour {
 
-	public Projectile projectileType;
 	public float projectileSpeed;
 	public Transform firingPosition;
 	public GameObject projectile;
-	public GameObject projectileInstance;
+	protected GameObject projectileInstance;
 
-	public Vector2 shootingDirection;
-	public Vector3 mousePosition;
+	protected Vector2 shootingDirection;
+	protected Vector3 mousePosition;
 }

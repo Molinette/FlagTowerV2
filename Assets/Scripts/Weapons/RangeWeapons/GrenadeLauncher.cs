@@ -6,6 +6,7 @@ public class GrenadeLauncher : RangeWeapons {
 	public float maxThrowingForce;
 	public float forceIncrement;
 	private float currentThrowingForce;
+	private Grenade grenade;
 
 	// Update is called once per frame
 	void Update () {

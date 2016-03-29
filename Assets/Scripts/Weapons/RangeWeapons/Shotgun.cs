@@ -6,6 +6,7 @@ public class Shotgun : RangeWeapons {
 	public int projectileCount;
 	public float coveringAngle;
 	private float currentThrowingForce;
+	private Bullet bullet;
 
 	void Update () {
 
