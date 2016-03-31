@@ -20,7 +20,7 @@ public class MonsterMovement : MonoBehaviour {
 	private Vector2 feetLocalPosition = new Vector2(0,-1);
 
 	//If the flag is in its hand
-	private bool hasFlag = false;
+	//private bool hasFlag = false;
 	//Where the flag will be held
 	public Transform flagHoldingPos;
 
@@ -136,7 +136,7 @@ public class MonsterMovement : MonoBehaviour {
 			collider.transform.parent.transform.parent = gameObject.transform;
             collider.transform.parent.position = flagHoldingPos.transform.position;
             collider.transform.parent.GetComponent<Rigidbody2D>().isKinematic = true;
-			hasFlag = true;
+			//hasFlag = true;
 			movingState = MovingStates.StealFlag;
 		}
 	}

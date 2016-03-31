@@ -8,6 +8,10 @@ public class Shotgun : RangeWeapons {
 	private float currentThrowingForce;
 	private Bullet bullet;
 
+	public override void Start(){
+		base.Start ();
+	}
+
 	void Update () {
 
 		mousePosition = Input.mousePosition;
@@ -17,6 +21,7 @@ public class Shotgun : RangeWeapons {
 
 		if (Input.GetMouseButtonDown(0))
 		{
+			PlayWeaponSound ();
 			float angleIncrements = coveringAngle/(projectileCount-1);
 			float startingAngle = shootingDirectionAngle + 360 + coveringAngle/2;
 

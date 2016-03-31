@@ -6,7 +6,10 @@ public class GrenadeLauncher : RangeWeapons {
 	public float maxThrowingForce;
 	public float forceIncrement;
 	private float currentThrowingForce;
-	private Grenade grenade;
+
+	public override void Start(){
+		base.Start ();
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -24,6 +27,7 @@ public class GrenadeLauncher : RangeWeapons {
 		}
 
 		if(Input.GetMouseButtonUp(0)){
+			PlayWeaponSound ();
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D>().AddForce(shootingDirection.normalized * currentThrowingForce,ForceMode2D.Impulse);

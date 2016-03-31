@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Pistol : RangeWeapons {
 
-	Bullet bullet;
-
+	public override void Start(){
+		base.Start ();
+	}
 
 	void Update () {
 
@@ -14,6 +15,7 @@ public class Pistol : RangeWeapons {
 
 		if (Input.GetMouseButtonDown(0))
 		{
+			PlayWeaponSound ();
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * projectileSpeed);

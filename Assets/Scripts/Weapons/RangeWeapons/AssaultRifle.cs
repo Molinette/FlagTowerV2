@@ -7,6 +7,10 @@ public class AssaultRifle : RangeWeapons {
 	public float firingSpeed;
 	private float nextFire = 0.0f;
 
+	public override void Start(){
+		base.Start ();
+	}
+
 	void Update () {
 
 		mousePosition = Input.mousePosition;
@@ -15,11 +19,11 @@ public class AssaultRifle : RangeWeapons {
 
 		if (Input.GetMouseButton(0) && Time.time > nextFire)
 		{
+			PlayWeaponSound ();
 			nextFire = Time.time + (1/firingSpeed);
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * projectileSpeed);
-
 		}
 	}
 }

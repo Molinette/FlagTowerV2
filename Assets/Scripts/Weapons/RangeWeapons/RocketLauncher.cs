@@ -4,8 +4,8 @@ using System.Collections;
 public class RocketLauncher : RangeWeapons {
 
 	// Use this for initialization
-	void Start () {
-	
+	public override void Start(){
+		base.Start ();
 	}
 	
 	// Update is called once per frame

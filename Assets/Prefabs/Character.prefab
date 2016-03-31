@@ -42,12 +42,11 @@ GameObject:
   - 4: {fileID: 453236}
   - 50: {fileID: 5016776}
   - 114: {fileID: 11424006}
-  - 114: {fileID: 11408444}
-  - 114: {fileID: 11428892}
-  - 114: {fileID: 11425166}
-  - 114: {fileID: 11405896}
   - 82: {fileID: 8250072}
-  - 114: {fileID: 11406382}
+  - 114: {fileID: 11428932}
+  - 114: {fileID: 11436158}
+  - 114: {fileID: 11493134}
+  - 114: {fileID: 11499034}
   m_Layer: 9
   m_Name: Character
   m_TagString: Character
@@ -342,48 +341,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &11405896
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a52759aee0de5e641baa86f76429260e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxThrowingForce: 15
-  forceIncrement: 25
-  firingPosition: {fileID: 457992}
-  bullet: {fileID: 111034, guid: 16081b9bad4ca5f4db2e368ca3eafb1c, type: 2}
-  shootSound: {fileID: 8300000, guid: 990853ea0cab94b4da7e0710c0e6c493, type: 3}
---- !u!114 &11406382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11408444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecff6c95f084328488d3239a25a59b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 15
-  firingPosition: {fileID: 457992}
-  bullet: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
-  shootSound: {fileID: 8300000, guid: 25aa751ea6e82be4db621589af049e95, type: 3}
 --- !u!114 &11424006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,24 +356,22 @@ MonoBehaviour:
   runningAcceleration: 40
   breakingAcceleration: 16
   jumpingForce: 12
---- !u!114 &11425166
+--- !u!114 &11428932
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143250}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e5dca2fcf96cc4f88f190a5d96f74e, type: 3}
+  m_Script: {fileID: 11500000, guid: aae2530de88b84648a12ccd636abb8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 35
+  projectileSpeed: 15
   firingPosition: {fileID: 457992}
-  bullet: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
-  bulletCount: 12
-  coveringAngle: 30
-  shootSound: {fileID: 8300000, guid: 944caa4acb728f446a5ba84e1032648b, type: 3}
---- !u!114 &11428892
+  projectile: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
+  weaponSound: {fileID: 8300000, guid: 25aa751ea6e82be4db621589af049e95, type: 3}
+--- !u!114 &11436158
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -424,9 +379,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 143250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96d85a8d67c2ece4b96dbc180c9a4eea, type: 3}
+  m_Script: {fileID: 11500000, guid: 174eb8abfd36a69468a351d0e3f880b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectileSpeed: 100
+  firingPosition: {fileID: 457992}
+  projectile: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
+  weaponSound: {fileID: 8300000, guid: 25aa751ea6e82be4db621589af049e95, type: 3}
+  firingSpeed: 20
 --- !u!114 &11442622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,6 +399,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingAngle: 90
+--- !u!114 &11493134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143250}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00885010110dd1e429559af04c35bca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 15
+  firingPosition: {fileID: 457992}
+  projectile: {fileID: 111034, guid: 16081b9bad4ca5f4db2e368ca3eafb1c, type: 2}
+  weaponSound: {fileID: 8300000, guid: 990853ea0cab94b4da7e0710c0e6c493, type: 3}
+  maxThrowingForce: 30
+  forceIncrement: 30
+--- !u!114 &11499034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143250}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1382fd3d1408cfe418efcc3422c829e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 30
+  firingPosition: {fileID: 457992}
+  projectile: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
+  weaponSound: {fileID: 8300000, guid: 944caa4acb728f446a5ba84e1032648b, type: 3}
+  projectileCount: 15
+  coveringAngle: 30
 --- !u!212 &21208950
 SpriteRenderer:
   m_ObjectHideFlags: 1
