@@ -7,10 +7,13 @@ public class Shooting : MonoBehaviour {
 	public Transform firingPosition;
 	public GameObject bullet;
 	GameObject bulletInstance;
+    private AudioSource source;
+    public AudioClip shootSound;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
-
+        source = GetComponent<AudioSource>();
 
 	}
 
@@ -25,6 +28,7 @@ public class Shooting : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0))
 		{
+            source.PlayOneShot(shootSound, 1F);
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			bulletInstance = (GameObject)Instantiate(bullet, firingPosition.position, firingPosition.rotation);
 			bulletInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * bulletSpeed);
