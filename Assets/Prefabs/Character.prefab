@@ -47,6 +47,7 @@ GameObject:
   - 114: {fileID: 11425166}
   - 114: {fileID: 11405896}
   - 82: {fileID: 8250072}
+  - 114: {fileID: 11406382}
   m_Layer: 9
   m_Name: Character
   m_TagString: Character
@@ -347,7 +348,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143250}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a52759aee0de5e641baa86f76429260e, type: 3}
   m_Name: 
@@ -356,7 +357,18 @@ MonoBehaviour:
   forceIncrement: 25
   firingPosition: {fileID: 457992}
   bullet: {fileID: 111034, guid: 16081b9bad4ca5f4db2e368ca3eafb1c, type: 2}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 990853ea0cab94b4da7e0710c0e6c493, type: 3}
+--- !u!114 &11406382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11408444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -371,7 +383,7 @@ MonoBehaviour:
   bulletSpeed: 15
   firingPosition: {fileID: 457992}
   bullet: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 25aa751ea6e82be4db621589af049e95, type: 3}
 --- !u!114 &11424006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -393,7 +405,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143250}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09e5dca2fcf96cc4f88f190a5d96f74e, type: 3}
   m_Name: 
@@ -403,7 +415,7 @@ MonoBehaviour:
   bullet: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
   bulletCount: 12
   coveringAngle: 30
-  shootSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 944caa4acb728f446a5ba84e1032648b, type: 3}
 --- !u!114 &11428892
 MonoBehaviour:
   m_ObjectHideFlags: 1
