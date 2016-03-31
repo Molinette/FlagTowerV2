@@ -10,14 +10,19 @@ public class ShotgunPrototype : MonoBehaviour {
 	GameObject bulletInstance;
 	public int bulletCount;
 	public float coveringAngle;
-	// Use this for initialization
-	void Start () {
+    private AudioSource source;
+    public AudioClip shootSound;
 
+    // Use this for initialization
+    void Awake()
+    {
 
-	}
+        source = GetComponent<AudioSource>();
 
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update () {
 		Vector2 shootingDirection;
 		Vector3 mousePosition;
 
@@ -28,7 +33,8 @@ public class ShotgunPrototype : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0))
 		{
-			float angleIncrements = coveringAngle/(bulletCount-1);
+            source.PlayOneShot(shootSound, 1F);
+            float angleIncrements = coveringAngle/(bulletCount-1);
 			float startingAngle = shootingDirectionAngle + 360 + coveringAngle/2;
 
 			for(int i = 0; i <= bulletCount-1; i++){
