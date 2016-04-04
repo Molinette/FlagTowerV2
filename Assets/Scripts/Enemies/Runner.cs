@@ -22,6 +22,10 @@ public class Runner : Enemy {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		groundLayer = LayerMask.NameToLayer("Ground");
 		target = GameObject.FindGameObjectWithTag("Flag").transform;
+
+		//Instantiate properties
+		this.max_health = 100f;
+		this.curr_health = 100f;
 	}
 
 	// Update is called once per frame
@@ -53,8 +57,6 @@ public class Runner : Enemy {
 			Move(direction);
 			break;
 		}
-
-
 	}
 
 	void Jump() {
@@ -125,5 +127,28 @@ public class Runner : Enemy {
 			hasFlag = true;
 			movingState = MovingStates.StealFlag;
 		}
+	}
+
+	public override void Damage (float dmg) {
+		curr_health -= dmg;
+		if (curr_health <= 0) {
+			if (hasFlag) {
+				DropFlag ();
+			}
+			Destroy (this.gameObject);
+		} else {
+			SetHealthBar (this.curr_health / this.max_health);
+		}
+
+	}
+
+	void DropFlag() {
+		GameObject flag = GameObject.FindGameObjectWithTag ("Flag");
+		flag.transform.parent = null;
+		flag.GetComponent<Rigidbody2D> ().isKinematic = false;
+	}
+
+	public void SetHealthBar(float enemyHealth) {
+		this.health_bar.transform.localScale = new Vector3 (enemyHealth, this.health_bar.transform.localScale.y , this.health_bar.transform.localScale.z);
 	}
 }

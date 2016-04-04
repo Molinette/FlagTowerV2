@@ -19,10 +19,13 @@ public class ComportementBalle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
+		if (coll.gameObject.tag == "Enemy") {
+			Enemy currentEnemy = coll.GetComponent<Runner> ();
+			if (currentEnemy is Runner) {
+				currentEnemy.Damage (20f);
+			}
+			Destroy (gameObject);
+		} 
     }
 
 }
