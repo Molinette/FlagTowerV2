@@ -12,7 +12,7 @@ public class Enemy : EnemyBehaviour {
 		base.Start();
 	}
 
-	public virtual void Damage (GameObject target,float damage) {
-		//target.SendMessage(
+	public virtual void Damage () {
+		
 	}
 }

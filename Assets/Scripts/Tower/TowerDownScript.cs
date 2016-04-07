@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class TowerDownScript : MonoBehaviour {
-    public float attack = 100f;
 	//Step prefab
 	public GameObject step;
 
@@ -13,7 +12,7 @@ public class TowerDownScript : MonoBehaviour {
     //Health of every steps
     public float stepHealth = 200f;
     //Max health of the tower
-    public float maxhealth;
+    private float maxhealth;
     //Tower's health
     private float health;
     //How many step right now
@@ -40,15 +39,6 @@ public class TowerDownScript : MonoBehaviour {
     }
 
 	void Update () {
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            changeHealth(attack);
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            changeHealth(-attack);
-        }
 
 	}
 		
