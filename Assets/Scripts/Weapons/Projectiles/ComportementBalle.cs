@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ComportementBalle : MonoBehaviour
 {
+	public float damage;
 
     // Use this for initialization
     void Start()
@@ -17,15 +18,15 @@ public class ComportementBalle : MonoBehaviour
         Destroy(this.gameObject, 2);
     }
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-		if (coll.gameObject.tag == "Enemy") {
-			Enemy currentEnemy = coll.GetComponent<Runner> ();
-			if (currentEnemy is Runner) {
-				currentEnemy.Damage (20f);
+			if(collision.gameObject.CompareTag("Enemy")){
+				Enemy currentEnemy = collision.gameObject.GetComponent<Enemy> ();
+				if (currentEnemy) {
+					currentEnemy.ReceiveDamage (damage);
+				}
 			}
 			Destroy (gameObject);
-		} 
     }
 
 }

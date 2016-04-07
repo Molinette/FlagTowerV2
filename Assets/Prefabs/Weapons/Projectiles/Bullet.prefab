@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b050f59d374acc346983c2d3b19ba9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 2
 --- !u!212 &21215648
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -138,6 +139,14 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: particlePrefab
+      value: 
+      objectReference: {fileID: 101690, guid: 08d2ea6130bdf16488607e34c797bd30, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100708}

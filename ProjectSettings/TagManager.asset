@@ -13,6 +13,9 @@ TagManager:
   - Platform
   - InventoryButton
   - Bullet
+  - Tower
+  - TowerAttackingZone
+  - Hitbox
   layers:
   - Default
   - TransparentFX
@@ -24,7 +27,7 @@ TagManager:
   - 
   - Ground
   - Player
-  - 
+  - Enemy
   - 
   - TrapZone
   - TrapGround

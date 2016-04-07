@@ -1,18 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : EnemyBehaviour, IDamage {
+public class Enemy : EnemyBehaviour {
 
 	public float damage; 
 	public float max_health;
-	public float curr_health;
-	public string name;
+	protected float curr_health;
 	public GameObject health_bar;
+
 	//Target to follow
-	public Transform target;
 	public Animator animation;
 
-	public virtual void Damage (float dmg) {
+	public override void Start(){
+		base.Start();
+		curr_health = max_health;
+	}
 
+	public virtual void Damage () {
+		
+	}
+
+	public virtual void ReceiveDamage (float damage) {
+		curr_health -= damage;
+		if (curr_health <= 0) {
+			Destroy (this.gameObject);
+		} else {
+			SetHealthBar (this.curr_health / this.max_health);
+		}
+	}
+
+	public void SetHealthBar(float enemyHealth) {
+		this.health_bar.transform.localScale = new Vector3 (enemyHealth, this.health_bar.transform.localScale.y ,
+		this.health_bar.transform.localScale.z);
 	}
 }

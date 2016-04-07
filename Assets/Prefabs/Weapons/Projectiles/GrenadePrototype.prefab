@@ -12,7 +12,7 @@ GameObject:
   - 50: {fileID: 5083272}
   - 60: {fileID: 6060132}
   - 114: {fileID: 11490626}
-  m_Layer: 14
+  m_Layer: 15
   m_Name: GrenadePrototype
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afff9469991f8440a5814f5219d6ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
   timer: 2
   explosionForce: 15
   explosionRadius: 5
@@ -137,6 +138,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: explosionRadius
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

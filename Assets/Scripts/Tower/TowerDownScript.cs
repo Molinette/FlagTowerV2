@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class TowerDownScript : MonoBehaviour {
-    public float attack = 100f;
+	//Step prefab
+	public GameObject step;
 
     //Total number of steps
     public int totalSteps = 3;
@@ -11,7 +12,7 @@ public class TowerDownScript : MonoBehaviour {
     //Health of every steps
     public float stepHealth = 200f;
     //Max health of the tower
-    public float maxhealth;
+    private float maxhealth;
     //Tower's health
     private float health;
     //How many step right now
@@ -19,24 +20,25 @@ public class TowerDownScript : MonoBehaviour {
     //Starting Y value
     private float startingPosY;
 
+	private GameObject stepInstance;
+
     void Start(){
         currentStep = totalSteps;
         startingPosY = transform.position.y;
         //Sets the total health
         health = totalSteps*stepHealth;
         maxhealth = health;
+
+		//Spawn steps
+		for(int i = 0; i < totalSteps; i++){
+			Vector3 stepPosition = transform.position;
+			stepPosition.y += stepHeight*i;
+			stepInstance = (GameObject)GameObject.Instantiate(step, stepPosition, step.transform.rotation);
+			stepInstance.transform.parent = transform;
+		}
     }
 
 	void Update () {
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            changeHealth(attack);
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            changeHealth(-attack);
-        }
 
 	}
 		
