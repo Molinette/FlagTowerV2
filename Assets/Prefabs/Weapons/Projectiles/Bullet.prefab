@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21215648}
   - 50: {fileID: 5084792}
   - 61: {fileID: 6156484}
-  - 114: {fileID: 11480930}
+  - 114: {fileID: 11460320}
   m_Layer: 14
   m_Name: Bullet
   m_TagString: Bullet
@@ -62,7 +62,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11480930
+--- !u!114 &11460320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -70,10 +70,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad9132d96027d94d8a6d59ea85dde39, type: 3}
+  m_Script: {fileID: 11500000, guid: b050f59d374acc346983c2d3b19ba9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 5
 --- !u!212 &21215648
 SpriteRenderer:
   m_ObjectHideFlags: 1
