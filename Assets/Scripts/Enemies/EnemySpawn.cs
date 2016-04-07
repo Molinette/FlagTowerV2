@@ -18,12 +18,22 @@ public class EnemySpawn : MonoBehaviour {
 	IEnumerator Spawn() {
 		while(true) {
 			Transform location = getRandomSpawnPoint ();
-			Instantiate (enemies[0], location.position, Quaternion.identity);
+			Instantiate (enemies[getEnemy()], location.position, Quaternion.identity);
 			yield return new WaitForSeconds (SpawnTime);
 		}
 	}
 
 	Transform getRandomSpawnPoint() {
 		return differentSpawnPoints[Random.Range (0, differentSpawnPoints.Length)];
+	}
+
+	int getEnemy(){
+		if(Random.Range(0,9) >= 1){
+			return 0;
+		}
+		else
+		{
+			return 1;
+		}
 	}
 }

@@ -14,18 +14,15 @@ public class Runner : Enemy {
 	//Where the flag will be held
 	public Transform flagHoldingPos;
 
-	//The monster's rigibody
-	private Rigidbody2D rb;
-
 	// Use this for initialization
-	void Start () {
-		rb = gameObject.GetComponent<Rigidbody2D>();
-		groundLayer = LayerMask.NameToLayer("Ground");
+	public override void Start () {
+		base.Start();
 		target = GameObject.FindGameObjectWithTag("Flag").transform;
+		groundLayer = LayerMask.NameToLayer("Ground");
 	}
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	public override void FixedUpdate () {
 		isGrounded = Physics2D.OverlapCircle(transform.TransformPoint(feetLocalPosition),groundCheckRadius, 1 << groundLayer);
 		int direction;
 
@@ -44,16 +41,15 @@ public class Runner : Enemy {
 		case MovingStates.Idle :
 			Move(0);
 			break;
-		case MovingStates.FetchFlag :
+		case MovingStates.FollowTarget :
 			direction = getTargetDirection(target.position);
 			Move(direction);
 			break;
-		case MovingStates.StealFlag :
+		case MovingStates.StealTarget :
 			direction = getTargetDirection(getClosestWinZone());
 			Move(direction);
 			break;
 		}
-
 
 	}
 
@@ -61,42 +57,6 @@ public class Runner : Enemy {
 		if(isGrounded && rb.velocity.y == 0){
 			rb.AddForce(Vector2.up * jumpingForce,ForceMode2D.Impulse);
 		}
-	}
-
-	void Move(int direction) {
-		//New x velocity
-		float velocityX;
-
-		/*Adds acceleration to the current velocity and affect it to the rigidbody
-		depending on the direction*/
-		if(direction > 0){
-			velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime;
-			rb.velocity = new Vector2(Mathf.Min(velocityX,maxRunningVelocity),rb.velocity.y);
-		}
-
-		else if(direction < 0){
-			velocityX = rb.velocity.x - runningAcceleration*Time.deltaTime;
-			rb.velocity = new Vector2(Mathf.Max(velocityX,-maxRunningVelocity),rb.velocity.y);
-		}
-
-		else
-		{
-			if(rb.velocity.x > 0){
-				velocityX = rb.velocity.x - breakingAcceleration*Time.deltaTime;
-				rb.velocity = new Vector2(Mathf.Max(velocityX,0),rb.velocity.y);
-			}
-			else if(rb.velocity.x < 0){
-				velocityX = rb.velocity.x + breakingAcceleration*Time.deltaTime;
-				rb.velocity = new Vector2(Mathf.Min(velocityX,0),rb.velocity.y);
-			}
-		}
-	}
-
-	int getTargetDirection(Vector3 targetPos){
-		int direction;
-		float posDifference = targetPos.x - transform.position.x;
-		direction = (int)(posDifference/Mathf.Abs(posDifference));
-		return direction;
 	}
 
 	Vector3 getClosestWinZone(){
@@ -123,7 +83,7 @@ public class Runner : Enemy {
 			collider.transform.parent.position = flagHoldingPos.transform.position;
 			collider.transform.parent.GetComponent<Rigidbody2D>().isKinematic = true;
 			hasFlag = true;
-			movingState = MovingStates.StealFlag;
+			movingState = MovingStates.FollowTarget;
 		}
 	}
 }

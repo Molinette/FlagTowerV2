@@ -13,6 +13,8 @@ TagManager:
   - Platform
   - InventoryButton
   - Bullet
+  - Tower
+  - TowerAttackingZone
   layers:
   - Default
   - TransparentFX
