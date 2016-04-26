@@ -25,6 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 438406}
   - 212: {fileID: 21264780}
+  - 95: {fileID: 9577442}
   m_Layer: 9
   m_Name: BodySprite
   m_TagString: Untagged
@@ -188,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.36, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 457992}
@@ -468,6 +469,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &9577442
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44693440dab00094c828efea7685de7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11424006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,6 +501,8 @@ MonoBehaviour:
   runningAcceleration: 40
   breakingAcceleration: 16
   jumpingForce: 12
+  body: {fileID: 141664}
+  anim: {fileID: 9577442}
 --- !u!114 &11428932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -498,6 +518,7 @@ MonoBehaviour:
   firingPosition: {fileID: 457992}
   projectile: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
   weaponSound: {fileID: 8300000, guid: 25aa751ea6e82be4db621589af049e95, type: 3}
+  firingCooldown: 0
 --- !u!114 &11436158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,7 +534,7 @@ MonoBehaviour:
   firingPosition: {fileID: 457992}
   projectile: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
   weaponSound: {fileID: 8300000, guid: 25aa751ea6e82be4db621589af049e95, type: 3}
-  firingSpeed: 20
+  firingCooldown: 0
 --- !u!114 &11440304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,7 +565,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143250}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8502f8387715205418870e6bec1bbf6d, type: 3}
   m_Name: 
@@ -553,7 +574,8 @@ MonoBehaviour:
   firingPosition: {fileID: 457992}
   projectile: {fileID: 111034, guid: 6374adde57b44fb4f898c9387b1a2d53, type: 2}
   weaponSound: {fileID: 8300000, guid: 990853ea0cab94b4da7e0710c0e6c493, type: 3}
-  isHoming: 0
+  firingCooldown: 0
+  isHoming: 1
 --- !u!114 &11469762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -581,6 +603,7 @@ MonoBehaviour:
   firingPosition: {fileID: 457992}
   projectile: {fileID: 111034, guid: 16081b9bad4ca5f4db2e368ca3eafb1c, type: 2}
   weaponSound: {fileID: 8300000, guid: 990853ea0cab94b4da7e0710c0e6c493, type: 3}
+  firingCooldown: 0
   maxThrowingForce: 30
   forceIncrement: 30
 --- !u!114 &11499034
@@ -589,7 +612,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143250}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1382fd3d1408cfe418efcc3422c829e2, type: 3}
   m_Name: 
@@ -598,6 +621,7 @@ MonoBehaviour:
   firingPosition: {fileID: 457992}
   projectile: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
   weaponSound: {fileID: 8300000, guid: 944caa4acb728f446a5ba84e1032648b, type: 3}
+  firingCooldown: 0
   projectileCount: 8
   coveringAngle: 15
 --- !u!212 &21204372
@@ -716,7 +740,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 55620605f7c5b894eb9c78f682732c7a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3588ff03b38d55f4c82016b315b2ac03, type: 3}
   m_Color: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
