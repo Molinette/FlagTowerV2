@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	//If the character is touching the ground
 	private bool isGrounded = false;
 	private LayerMask groundLayer;
+	private LayerMask platformLayer;
 	private float groundCheckRadius = 0.25f;
 	private Vector2 feetLocalPosition = new Vector2(0,-1);
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		groundLayer = LayerMask.NameToLayer("Ground");
+		platformLayer = LayerMask.NameToLayer("Platform");
 	}
 
 	// Update is called once per frame
@@ -37,10 +39,11 @@ public class PlayerController : MonoBehaviour {
 		//New x velocity
 		float velocityX;
 
-		//Looks if the character is grounded
+		//Looks if the character is grounded or on a platform
 		isGrounded = Physics2D.OverlapCircle(transform.TransformPoint(feetLocalPosition),
-			groundCheckRadius, 1 << groundLayer);
-
+			groundCheckRadius, 1 << groundLayer) || Physics2D.OverlapCircle(transform.TransformPoint(feetLocalPosition),
+				groundCheckRadius, 1 << platformLayer);
+;
 		//Jump mechanic
 		if(jumpInput > 0 && isGrounded && rb.velocity.y == 0){
 			rb.AddForce(Vector2.up * jumpingForce,ForceMode2D.Impulse);

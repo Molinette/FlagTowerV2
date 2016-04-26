@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: fc28f9f2599791349a811265228b9d0f
+timeCreated: 1460677787
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_Perso_princ_Walk_0
+    21300002: Anim_Perso_princ_Walk_1
+    21300004: Anim_Perso_princ_Walk_2
+    21300006: Anim_Perso_princ_Walk_3
+    21300008: Anim_Perso_princ_Walk_4
+    21300010: Anim_Perso_princ_Walk_5
+    21300012: Anim_Perso_princ_Walk_6
+    21300014: Anim_Perso_princ_Walk_7
+    21300016: Anim_Perso_princ_Walk_8
+    21300018: Anim_Perso_princ_Walk_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_Perso_princ_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4904
+        width: 367
+        height: 515
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 97.010864}
+        - {x: -69, y: -44.989136}
+        - {x: -69, y: -86.989136}
+        - {x: -42, y: -93.989136}
+        - {x: 52, y: -93.989136}
+        - {x: 69, y: -73.989136}
+        - {x: 69, y: -28.989136}
+        - {x: 26, y: 97.010864}
+    - name: Anim_Perso_princ_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4361
+        width: 367
+        height: 483
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23, y: 92.331055}
+        - {x: -30, y: 87.331055}
+        - {x: -38, y: 56.331055}
+        - {x: -67, y: -30.668945}
+        - {x: -69, y: -42.668945}
+        - {x: -69, y: -83.668945}
+        - {x: -38, y: -86.668945}
+        - {x: -26, y: -86.668945}
+        - {x: -23, y: -79.668945}
+        - {x: -24, y: -68.668945}
+        - {x: 37, y: -86.668945}
+        - {x: 56, y: -86.668945}
+        - {x: 61, y: -69.668945}
+        - {x: 61, y: -17.668945}
+        - {x: 21, y: 92.331055}
+    - name: Anim_Perso_princ_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3818
+        width: 367
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36, y: -91.848755}
+        - {x: 53, y: -55.848755}
+        - {x: 53, y: -49.848755}
+        - {x: 46, y: -43.848755}
+        - {x: 35, y: 35.151245}
+        - {x: 22, y: 96.151245}
+        - {x: -30, y: 96.151245}
+        - {x: -56, y: 33.151245}
+        - {x: -60, y: -0.8487549}
+        - {x: -60, y: -91.848755}
+        - {x: -11, y: -91.848755}
+        - {x: -12, y: -72.848755}
+        - {x: 27, y: -89.848755}
+        - {x: 34, y: -91.848755}
+    - name: Anim_Perso_princ_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3269
+        width: 367
+        height: 530
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11, y: -97.78467}
+        - {x: 34, y: -83.78467}
+        - {x: 34, y: 59.215332}
+        - {x: 27, y: 100.21533}
+        - {x: -37, y: 100.21533}
+        - {x: -37, y: -97.78467}
+    - name: Anim_Perso_princ_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2743
+        width: 367
+        height: 516
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 97.92786}
+        - {x: -38, y: 93.92786}
+        - {x: -38, y: -95.07214}
+        - {x: 23, y: -95.07214}
+        - {x: 28, y: -94.07214}
+        - {x: 54, y: -64.07214}
+        - {x: 54, y: -44.072144}
+        - {x: 24, y: 97.92786}
+    - name: Anim_Perso_princ_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2190
+        width: 367
+        height: 514
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60, y: -49.512268}
+        - {x: -60, y: -95.51227}
+        - {x: -46, y: -95.51227}
+        - {x: -17, y: -93.51227}
+        - {x: -15, y: -91.51227}
+        - {x: -12, y: -86.51227}
+        - {x: 19, y: -95.51227}
+        - {x: 38, y: -95.51227}
+        - {x: 64, y: -68.51227}
+        - {x: 64, y: -46.512268}
+        - {x: 31, y: 97.48773}
+        - {x: -21, y: 97.48773}
+        - {x: -37, y: 82.48773}
+    - name: Anim_Perso_princ_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1644
+        width: 367
+        height: 485
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -69, y: -12.320129}
+        - {x: -69, y: -91.32013}
+        - {x: 67, y: -91.32013}
+        - {x: 69, y: -77.32013}
+        - {x: 69, y: -35.32013}
+        - {x: 26, y: 91.67987}
+        - {x: -27, y: 91.67987}
+        - {x: -38, y: 87.67987}
+    - name: Anim_Perso_princ_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1098
+        width: 367
+        height: 509
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35, y: 97.37195}
+        - {x: -33, y: 97.37195}
+        - {x: -38, y: 94.37195}
+        - {x: -48, y: -3.6280518}
+        - {x: -48, y: -95.62805}
+        - {x: 38, y: -95.62805}
+        - {x: 46, y: -82.62805}
+        - {x: 46, y: 51.37195}
+    - name: Anim_Perso_princ_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 367
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 20, y: 102.55586}
+        - {x: -20, y: 102.55586}
+        - {x: -36, y: 85.55586}
+        - {x: -41, y: 11.555862}
+        - {x: -41, y: -61.444138}
+        - {x: -9, y: -101.44414}
+        - {x: 16, y: -101.44414}
+        - {x: 38, y: -90.44414}
+        - {x: 38, y: 7.5558624}
+        - {x: 36, y: 38.555862}
+    - name: Anim_Perso_princ_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 27
+        width: 367
+        height: 517
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 28, y: 97.65259}
+        - {x: -23, y: 97.65259}
+        - {x: -46, y: 66.65259}
+        - {x: -46, y: -97.34741}
+        - {x: 49, y: -97.34741}
+        - {x: 68, y: -74.34741}
+        - {x: 68, y: -37.347412}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

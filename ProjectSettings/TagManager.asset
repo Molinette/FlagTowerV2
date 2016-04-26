@@ -30,7 +30,7 @@ TagManager:
   - Enemy
   - 
   - TrapZone
-  - TrapGround
+  - Platform
   - Projectile
   - Uncollide
   - 

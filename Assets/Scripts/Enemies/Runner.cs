@@ -6,6 +6,7 @@ public class Runner : Enemy {
 	//If the monster is touching the ground
 	private bool isGrounded = false;
 	private LayerMask groundLayer;
+	private LayerMask platformLayer;
 	private float groundCheckRadius = 0.25f;
 	private Vector2 feetLocalPosition = new Vector2(0,-1);
 
@@ -18,12 +19,13 @@ public class Runner : Enemy {
 	public override void Start () {
 		base.Start();
 		target = GameObject.FindGameObjectWithTag("Flag").transform;
-		groundLayer = LayerMask.NameToLayer("Ground");
+		platformLayer = LayerMask.NameToLayer("Platform");
 	}
 
 	// Update is called once per frame
 	public override void FixedUpdate () {
-		isGrounded = Physics2D.OverlapCircle(transform.TransformPoint(feetLocalPosition),groundCheckRadius, 1 << groundLayer);
+		isGrounded = Physics2D.OverlapCircle(transform.TransformPoint(feetLocalPosition),groundCheckRadius, 1 << platformLayer);
+
 		int direction;
 
 		switch(movingState){

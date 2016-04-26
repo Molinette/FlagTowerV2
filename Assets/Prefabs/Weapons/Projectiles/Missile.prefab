@@ -108,7 +108,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 101690, guid: 08d2ea6130bdf16488607e34c797bd30, type: 2}
   missileAcceleration: 10
   explosionForce: 15
-  fuel: 0.5
+  fuel: 3
 --- !u!198 &19862032
 ParticleSystem:
   m_ObjectHideFlags: 1

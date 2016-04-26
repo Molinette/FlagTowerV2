@@ -29,7 +29,7 @@ public class Placeable : MonoBehaviour {
 				inTrapZone = false;
 			}
 			if(inTrapZone){
-				LayerMask placeableZoneLayer = LayerMask.NameToLayer("TrapGround");
+				LayerMask placeableZoneLayer = LayerMask.NameToLayer("Ground");
 				hit = Physics2D.Raycast(mouseWorldPosition,Vector2.down, Mathf.Infinity, 1 << placeableZoneLayer);
 				transform.position = new Vector2(Mathf.Floor(mouseWorldPosition.x)+bounds.x/2,hit.point.y+bounds.y/2);
 				if(Input.GetMouseButtonDown(1)){
