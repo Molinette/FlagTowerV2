@@ -12,15 +12,17 @@ public class Shotgun : RangeWeapons {
 		base.Start ();
 	}
 
-	void Update () {
+	public override void Update () {
 
+		base.Update ();
 		mousePosition = Input.mousePosition;
 		mousePosition.z = -Camera.main.transform.position.z;
 		shootingDirection = (Vector2)Camera.main.ScreenToWorldPoint (mousePosition) - (Vector2)transform.position;
 		float shootingDirectionAngle = VectorAngle(shootingDirection);
 
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && firingTimer >= firingCooldown)
 		{
+			firingTimer = 0;
 			PlayWeaponSound ();
 			float angleIncrements = coveringAngle/(projectileCount-1);
 			float startingAngle = shootingDirectionAngle + 360 + coveringAngle/2;

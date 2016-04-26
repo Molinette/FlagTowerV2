@@ -11,9 +11,17 @@ public class RangeWeapons : MonoBehaviour {
 	protected Vector3 mousePosition;
 	private AudioSource source;
 	public AudioClip weaponSound;
+	public float firingCooldown;
+	protected float firingTimer;
 
 	public virtual void Start(){
 		source = GetComponent<AudioSource>();
+		firingTimer = firingCooldown;
+	}
+		
+	public virtual void Update(){
+	
+		firingTimer += Time.deltaTime;
 	}
 
 	public void PlayWeaponSound(){

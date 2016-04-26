@@ -12,8 +12,9 @@ public class GrenadeLauncher : RangeWeapons {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
 
+		base.Update ();
 		mousePosition = Input.mousePosition;
 		mousePosition.z = -Camera.main.transform.position.z;
 		shootingDirection = (Vector2)Camera.main.ScreenToWorldPoint (mousePosition) - (Vector2)transform.position;
@@ -26,7 +27,8 @@ public class GrenadeLauncher : RangeWeapons {
 			currentThrowingForce = Mathf.Min(currentThrowingForce + forceIncrement*Time.deltaTime, maxThrowingForce); 
 		}
 
-		if(Input.GetMouseButtonUp(0)){
+		if(Input.GetMouseButtonUp(0) && firingTimer >= firingCooldown){
+			firingTimer = 0;
 			PlayWeaponSound ();
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
