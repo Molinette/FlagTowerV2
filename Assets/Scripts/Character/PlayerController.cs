@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour {
 	public float breakingAcceleration = 16f;
 	public float jumpingForce = 8f;
 
+	//Animation
+	public GameObject body;
+	public Animator anim;
+
 	//If the character is touching the ground
 	private bool isGrounded = false;
 	private LayerMask groundLayer;
@@ -33,8 +37,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
+
 		float horizontalInput = Input.GetAxis("Horizontal");
 		float jumpInput = Input.GetAxis("Jump");
+
+		anim.SetFloat("speed",Mathf.Abs(horizontalInput));
 
 		//New x velocity
 		float velocityX;
@@ -53,10 +60,12 @@ public class PlayerController : MonoBehaviour {
 		/*Adds acceleration to the current velocity and affect it to the rigidbody
 		depending on the direction*/
 		if(horizontalInput > 0){
+			body.GetComponent<SpriteRenderer>().flipX = true;
 			velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime*horizontalInput;
 			rb.velocity = new Vector2(Mathf.Min(velocityX,maxRunningVelocity),rb.velocity.y);
 		}
 		else if(horizontalInput < 0){
+			body.GetComponent<SpriteRenderer>().flipX = false;
 			velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime*horizontalInput;
 			rb.velocity = new Vector2(Mathf.Max(velocityX,-maxRunningVelocity),rb.velocity.y);
 		}
