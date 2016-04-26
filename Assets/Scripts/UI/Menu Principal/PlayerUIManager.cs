@@ -35,10 +35,6 @@ public class PlayerUIManager : MonoBehaviour {
 
     public void Update()
     {
-        LevelsText.text = "Player Level: " + playerLevel + "\n" + "\n"
-            + "Katana Level: " + katanaLevel + "\n" + "\n"
-            + "Pistol Ammo: " + pistolAmmo + "\n" + "\n"
-            + "Mines  Level: " + mineAmmo;
     }
 
     public void RaiseLevel(string upgrade)

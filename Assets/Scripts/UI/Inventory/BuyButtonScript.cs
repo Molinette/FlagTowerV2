@@ -5,14 +5,15 @@ using System.Collections;
 public class BuyButtonScript : MonoBehaviour {
     
     public string item;
-    public PlayerInventory playerInventory;
+    private PlayerInventory playerInventory;
 
     public Text ItemPriceText;
 
 	// Use this for initialization
 	void Start () {
-
-	}
+        playerInventory = GameObject.FindGameObjectWithTag("Character").GetComponent<PlayerInventory>();
+        Debug.Log(GameObject.FindGameObjectWithTag("Character").GetComponent<PlayerInventory>());
+    }
 	
 	// Update is called once per frame
 	void Update () {
