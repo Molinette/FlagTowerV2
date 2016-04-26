@@ -8,7 +8,6 @@ public class Missile : Explosive {
 	//Does it follow the cursor when left mous is pressed?
 	private bool isHoming = false;
 	public float explosionForce;
-	public float fuel = 3;
 	private float startingAngle = 90;
 	private GameObject rocketLauncher;
 	protected Vector2 direction;
@@ -16,7 +15,7 @@ public class Missile : Explosive {
 
 	void Update(){
 
-		if (Input.GetMouseButton (1) && isHoming && fuel > 0) {
+		if (Input.GetMouseButtonDown (1) && isHoming) {
 			//Get direction to cursor
 			mousePosition = Input.mousePosition;
 			mousePosition.z = -Camera.main.transform.position.z;
@@ -28,9 +27,6 @@ public class Missile : Explosive {
 
 			//Give velocity to cursor
 			GetComponent<Rigidbody2D> ().velocity = direction.normalized*20;
-
-			//Empty fuel
-			fuel -= Time.deltaTime;
 		} else {
 			GetComponent<Rigidbody2D> ().AddForce (transform.TransformDirection (Vector2.up) * missileAcceleration);
 		}

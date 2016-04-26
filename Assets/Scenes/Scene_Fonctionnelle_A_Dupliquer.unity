@@ -2452,6 +2452,14 @@ Prefab:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
+    - target: {fileID: 11461468, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499034, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
   m_IsPrefabParent: 0
