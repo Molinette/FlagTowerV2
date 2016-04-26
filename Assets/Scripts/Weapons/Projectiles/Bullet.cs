@@ -4,18 +4,20 @@ using System.Collections;
 public class Bullet : Projectile{
 
 
-
 	// Update is called once per frame
 	void Update()
 	{
 		Destroy(this.gameObject, 2);
 	}
 
-	void OnTriggerEnter2D(Collider2D coll)
+	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (coll.gameObject.tag == "Enemy")
-		{
-			Destroy(gameObject);
+		if(collision.gameObject.CompareTag("Enemy")){
+			Enemy currentEnemy = collision.gameObject.GetComponent<Enemy> ();
+			if (currentEnemy) {
+				currentEnemy.ReceiveDamage (damage);
+			}
 		}
+		Destroy (gameObject);
 	}
 }

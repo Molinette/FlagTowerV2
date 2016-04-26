@@ -4119,7 +4119,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11436158, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
       propertyPath: firingCooldown
-      value: 0.01
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 11436158, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
       propertyPath: projectileSpeed
