@@ -3,10 +3,14 @@ using System.Collections;
 
 public class ShopMenuScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    private PlayerInventory playerInventory;
+
+    private GameObject[] inventoryButtons;
+
+    // Use this for initialization
+    void Start () {
+        inventoryButtons = GameObject.FindGameObjectsWithTag("InventoryButton");
+    }
 	
 	// Update is called once per frame
 	void Update () {
