@@ -21,6 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 	// Use this for initialization
 	public virtual void Start () {
+		Debug.Log (gameObject.name);
 		rb = gameObject.GetComponent<Rigidbody2D>();
 	}
 
@@ -56,13 +57,20 @@ public class EnemyBehaviour : MonoBehaviour
 		/*Adds acceleration to the current velocity and affect it to the rigidbody
 		depending on the direction*/
 		if(direction > 0){
+			if (rb == null) {
+				print ("is null");
+			}
 			velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime;
 			rb.velocity = new Vector2(Mathf.Min(velocityX,maxRunningVelocity),rb.velocity.y);
 		}
 
 		else if(direction < 0){
+			if (rb == null) {
+				print ("is null");
+			}
 			velocityX = rb.velocity.x - runningAcceleration*Time.deltaTime;
 			rb.velocity = new Vector2(Mathf.Max(velocityX,-maxRunningVelocity),rb.velocity.y);
+
 		}
 
 		else

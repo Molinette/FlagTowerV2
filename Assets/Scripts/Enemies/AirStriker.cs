@@ -8,19 +8,28 @@ public class AirStriker : Enemy {
 	public int GameObjectToSpawn;
 
 	private float SpawnTime = 3f;
-	private int targetDirection = GetTargetDirection;
+	private int targetDirection;
 
 	void Start () {
+		base.Start ();
+		targetDirection = GetTargetDirection();
+		base.target = Targets [targetDirection];
 		StartCoroutine (Drop());
 	}
 
-	void Update () {
-		base.target = Targets [targetDirection];
-		if (targetDirection == 1) {
-			Move (1);
-		} else {
-			Move (-1);
+	public override void FixedUpdate () {
+		int direction;
+
+		switch (movingState) {
+		case MovingStates.Idle:
+			Move (0);
+			break;
+		case MovingStates.FollowTarget:
+			direction = getTargetDirection (target.position);
+			Move (direction);
+			break;
 		}
+
 	}
 
 	IEnumerator Drop () {

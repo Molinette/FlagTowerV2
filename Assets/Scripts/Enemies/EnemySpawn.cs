@@ -11,7 +11,6 @@ public class EnemySpawn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 		StartCoroutine (Spawn());
 	}
 
@@ -28,12 +27,6 @@ public class EnemySpawn : MonoBehaviour {
 	}
 
 	int getEnemy(){
-		if(Random.Range(0,9) >= 2){
-			return 0;
-		}
-		else
-		{
-			return 1;
-		}
+		return Random.Range (0, enemies.Length);
 	}
 }
