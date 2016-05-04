@@ -3,11 +3,23 @@ using System.Collections;
 
 public class Bullet : Projectile{
 
+	private bool hasAppeared;
 
-	// Update is called once per frame
-	void Update()
-	{
-		Destroy(this.gameObject, 2);
+	void Start(){
+
+		hasAppeared = false;
+	}
+
+	void Update(){
+	
+		if (gameObject.GetComponent<Renderer> ().isVisible) {
+			hasAppeared = true;
+		}
+		if (hasAppeared) {
+			if (!gameObject.GetComponent<Renderer> ().isVisible){
+				Destroy (gameObject);
+			}
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
