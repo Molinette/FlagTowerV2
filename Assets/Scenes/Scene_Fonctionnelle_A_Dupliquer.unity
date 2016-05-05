@@ -910,7 +910,7 @@ GameObject:
   - 61: {fileID: 544502216}
   m_Layer: 8
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1405,7 +1405,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
@@ -1921,7 +1920,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11429658, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
       propertyPath: enemies.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 438134, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2000,6 +1999,10 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 11429658, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 139516, guid: 6381774a718a29243a41eb4a21de4704, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
   m_IsPrefabParent: 0
@@ -2272,7 +2275,7 @@ GameObject:
   - 61: {fileID: 1122965534}
   m_Layer: 13
   m_Name: TrapGound
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2454,11 +2457,19 @@ Prefab:
       objectReference: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
     - target: {fileID: 11461468, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11499034, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428932, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11428932, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
+      propertyPath: projectileSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0377607cbc41b9418f727033eb2071c, type: 2}

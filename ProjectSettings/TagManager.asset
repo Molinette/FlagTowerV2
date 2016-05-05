@@ -16,6 +16,7 @@ TagManager:
   - Tower
   - TowerAttackingZone
   - Hitbox
+  - Ground
   layers:
   - Default
   - TransparentFX

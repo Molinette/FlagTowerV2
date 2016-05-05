@@ -2,5 +2,24 @@
 using System.Collections;
 
 public class Bomber : Enemy {
+	public GameObject explosion;
+	private GameObject tower;
 
+	public override void Start(){
+		base.Start();
+		tower = GameObject.FindGameObjectWithTag("Tower");
+		target = tower.transform;
+	}
+
+	void OnCollisionEnter2D(Collision2D collision){
+		if(!collision.collider.gameObject.CompareTag("Ground")){
+			GameObject.Instantiate(explosion,transform.position,explosion.transform.rotation);
+			Damage();
+			Destroy(gameObject);
+		}
+	}
+
+	public override void Damage () {
+		tower.GetComponent<TowerDownScript>().changeHealth(-damage);
+	}
 }
