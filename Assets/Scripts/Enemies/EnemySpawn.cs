@@ -28,12 +28,12 @@ public class EnemySpawn : MonoBehaviour {
 	}
 
 	int getEnemy(){
-		if(Random.Range(0,9) >= 3){
+		if(Random.Range(0,9) >= 2){
 			return 0;
 		}
 		else
 		{
-			if(Random.Range(0,9) >= 3){
+			if(Random.Range(0,9) >= 5){
 				return 1;
 			}
 			else

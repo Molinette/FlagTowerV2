@@ -22,7 +22,8 @@ public class RocketLauncher : RangeWeapons {
 			PlayWeaponSound ();
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate (projectile, firingPosition.position, firingPosition.rotation);
-			projectileInstance.GetComponent<Rigidbody2D> ().AddForce (shootingDirection.normalized * projectileSpeed, ForceMode2D.Impulse);
+            projectileInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * projectileSpeed);
+            projectileInstance.GetComponent<Missile>().SetMissileSpeed(projectileSpeed);
 			projectileInstance.GetComponent<Missile> ().SetIsHoming (isHoming);
 			projectileInstance.GetComponent<Projectile>().SetDamage(damage);
 		}

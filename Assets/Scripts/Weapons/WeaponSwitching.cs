@@ -42,12 +42,12 @@ public class WeaponSwitching : MonoBehaviour {
 
 		else if (Input.GetKeyDown ("2")) {
 			resetWeapons();
-			shotgun.SetActive (true);
+			assaultRifle.SetActive (true);
 		}
 
 		else if (Input.GetKeyDown ("3")) {
 			resetWeapons();
-			assaultRifle.SetActive (true);
+			shotgun.SetActive (true);
 		}
 
 		else if (Input.GetKeyDown ("4")) {

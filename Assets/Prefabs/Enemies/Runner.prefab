@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingState: 1
-  maxRunningVelocity: 12
+  maxRunningVelocity: 10
   runningAcceleration: 40
   breakingAcceleration: 16
   jumpingForce: 15

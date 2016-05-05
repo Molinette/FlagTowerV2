@@ -72,7 +72,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -103,12 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e80cb2f66c5cfb43994d0aff756079a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
   explosionRadius: 2
   explosionPrefab: {fileID: 101690, guid: 08d2ea6130bdf16488607e34c797bd30, type: 2}
-  missileAcceleration: 10
+  missileSpeed: 20
   explosionForce: 15
-  fuel: 3
 --- !u!198 &19862032
 ParticleSystem:
   m_ObjectHideFlags: 1

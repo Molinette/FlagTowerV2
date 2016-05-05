@@ -4,8 +4,8 @@ using System.Collections;
 public class Missile : Explosive {
 
 	//The rocket force
-	public float missileAcceleration;
-	//Does it follow the cursor when left mous is pressed?
+	public float missileSpeed;
+	//Does it follow the cursor when left mouse is pressed?
 	private bool isHoming = false;
 	public float explosionForce;
 	private float startingAngle = 90;
@@ -26,9 +26,7 @@ public class Missile : Explosive {
 			transform.eulerAngles = new Vector3(0, 0, rotationZ);
 
 			//Give velocity to cursor
-			GetComponent<Rigidbody2D> ().velocity = direction.normalized*20;
-		} else {
-			GetComponent<Rigidbody2D> ().AddForce (transform.TransformDirection (Vector2.up) * missileAcceleration);
+			GetComponent<Rigidbody2D> ().velocity = direction.normalized*missileSpeed;
 		}
 	}
 
@@ -59,5 +57,9 @@ public class Missile : Explosive {
 	public void SetIsHoming(bool isHoming){
 		this.isHoming = isHoming;
 	}
+
+    public void SetMissileSpeed(float speed){
+        missileSpeed = speed;
+    }
 
 }
