@@ -21,6 +21,7 @@ public class Pistol : RangeWeapons {
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * projectileSpeed);
+			projectileInstance.GetComponent<Projectile>().SetDamage(damage);
 		}
 	}
 }

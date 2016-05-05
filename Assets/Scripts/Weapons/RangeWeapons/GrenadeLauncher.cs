@@ -33,6 +33,7 @@ public class GrenadeLauncher : RangeWeapons {
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D>().AddForce(shootingDirection.normalized * currentThrowingForce,ForceMode2D.Impulse);
+			//projectileInstance.GetComponent<Projectile>().SetDamage(damage);
 		}
 	}
 

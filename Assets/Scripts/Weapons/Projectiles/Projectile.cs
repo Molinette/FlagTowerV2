@@ -3,14 +3,14 @@ using System.Collections;
 
 public abstract class Projectile : MonoBehaviour {
 
-	public float damage;
+	protected float damage;
 
-	public void setDamage(float damage){
+	public void SetDamage(float damage){
 
 		this.damage = damage;
 	}
 
-	public float getDamage(){
+	public float GetDamage(){
 	
 		return damage;
 	}

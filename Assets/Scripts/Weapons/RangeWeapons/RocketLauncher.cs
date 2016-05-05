@@ -24,6 +24,7 @@ public class RocketLauncher : RangeWeapons {
 			projectileInstance = (GameObject)Instantiate (projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D> ().AddForce (shootingDirection.normalized * projectileSpeed, ForceMode2D.Impulse);
 			projectileInstance.GetComponent<Missile> ().SetIsHoming (isHoming);
+			projectileInstance.GetComponent<Projectile>().SetDamage(damage);
 		}
 	}
 }
