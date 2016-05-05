@@ -14,4 +14,6 @@ public abstract class Projectile : MonoBehaviour {
 	
 		return damage;
 	}
+
+
 }
