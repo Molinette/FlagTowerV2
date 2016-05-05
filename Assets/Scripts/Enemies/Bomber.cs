@@ -13,8 +13,10 @@ public class Bomber : Enemy {
 
 	void OnCollisionEnter2D(Collision2D collision){
 		if(!collision.collider.gameObject.CompareTag("Ground")){
+			if(collision.collider.gameObject.CompareTag("Tower")){
+				Damage();
+			}
 			GameObject.Instantiate(explosion,transform.position,explosion.transform.rotation);
-			Damage();
 			Destroy(gameObject);
 		}
 	}

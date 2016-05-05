@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingState: 1
-  maxRunningVelocity: 15
+  maxRunningVelocity: 10
   runningAcceleration: 40
   breakingAcceleration: 16
   jumpingForce: 8
@@ -625,6 +625,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: movingState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxRunningVelocity
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
