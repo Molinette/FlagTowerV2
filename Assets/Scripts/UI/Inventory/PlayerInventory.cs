@@ -24,6 +24,7 @@ public class PlayerInventory : MonoBehaviour {
     private GameObject[] inventoryButtons;
 
     public Text moneyText;
+    public TowerDownScript tower;
 
     public void Start()
     {
@@ -32,15 +33,15 @@ public class PlayerInventory : MonoBehaviour {
 
 
 
-        itemPrices[KATANA] = 1000;
-        itemPrices[RIFLE] = 1000;
-        itemPrices[SHOTGUN] = 1000;
-        itemPrices[RPG] = 1000;
-        itemPrices[GRENADELAUNCHER] = 1000;
-        itemPrices[TURRET] = 1000;
-        itemPrices[MINE] = 1000;
-        itemPrices[TOWERHEALTH] = 200;
-        itemPrices[TOWERARMOR] = 200;
+        itemPrices[KATANA] = ConstantInventoryValues.Katana_Initial_Cost;
+        itemPrices[RIFLE] = ConstantInventoryValues.Rifle_Initial_Cost;
+        itemPrices[SHOTGUN] = ConstantInventoryValues.Shotgun_Initial_Cost;
+        itemPrices[RPG] = ConstantInventoryValues.RPG_Initial_Cost;
+        itemPrices[GRENADELAUNCHER] = ConstantInventoryValues.GrenadeLauncher_Initial_Cost;
+        itemPrices[TURRET] = ConstantInventoryValues.Turret_Cost;
+        itemPrices[MINE] = ConstantInventoryValues.Mine_Cost;
+        itemPrices[TOWERHEALTH] = ConstantInventoryValues.Tower_Health_Cost;
+        itemPrices[TOWERARMOR] = ConstantInventoryValues.Tower_Armor_Cost;
         refreshMoneyText();
         
     }
@@ -51,7 +52,7 @@ public class PlayerInventory : MonoBehaviour {
         {
             case "Katana":
                 if (Pay(itemPrices[KATANA])) {
-                    if (itemPrices[KATANA] == 1000)
+                    if (itemPrices[KATANA] == ConstantInventoryValues.Katana_Initial_Cost)
                     {
                         inventory[KATANA] += 1;
                         inventoryButtons[KATANA].GetComponent<ButtonPlayerAction>().RefreshText(inventory[KATANA].ToString());
@@ -62,9 +63,9 @@ public class PlayerInventory : MonoBehaviour {
             case "Rifle":
                 if (Pay(itemPrices[RIFLE]))
                 {
-                    if (itemPrices[RIFLE] <= 1000)
+                    if (itemPrices[RIFLE] <= ConstantInventoryValues.Rifle_Initial_Cost)
                     {
-                        itemPrices[RIFLE] = 25;
+                        itemPrices[RIFLE] = ConstantInventoryValues.Rifle_Ammo_Cost;
                     }
                     inventory[RIFLE] += 30;
                     inventoryButtons[RIFLE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RIFLE].ToString());
@@ -73,9 +74,9 @@ public class PlayerInventory : MonoBehaviour {
             case "Shotgun":
                 if (Pay(itemPrices[SHOTGUN]))
                 {
-                    if (itemPrices[SHOTGUN] <= 1000)
+                    if (itemPrices[SHOTGUN] <= ConstantInventoryValues.Shotgun_Initial_Cost)
                     {
-                        itemPrices[SHOTGUN] = 75;
+                        itemPrices[SHOTGUN] = ConstantInventoryValues.Shotgun_Ammo_Cost;
                     }
                     inventory[SHOTGUN] += 8;
                     inventoryButtons[SHOTGUN].GetComponent<ButtonPlayerAction>().RefreshText(inventory[SHOTGUN].ToString());
@@ -84,9 +85,9 @@ public class PlayerInventory : MonoBehaviour {
             case "RPG":
                 if (Pay(itemPrices[RPG]))
                 {
-                    if (itemPrices[RPG] <= 1000)
+                    if (itemPrices[RPG] <= ConstantInventoryValues.RPG_Initial_Cost)
                     {
-                        itemPrices[RPG] = 200;
+                        itemPrices[RPG] = ConstantInventoryValues.RPG_Ammo_Cost;
                     }
                     inventory[RPG] += 1;
                     inventoryButtons[RPG].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RPG].ToString());
@@ -95,9 +96,9 @@ public class PlayerInventory : MonoBehaviour {
             case "GrenadeLauncher":
                 if (Pay(itemPrices[GRENADELAUNCHER]))
                 {
-                    if (itemPrices[GRENADELAUNCHER] <= 1000)
+                    if (itemPrices[GRENADELAUNCHER] <= ConstantInventoryValues.GrenadeLauncher_Initial_Cost)
                     {
-                        itemPrices[GRENADELAUNCHER] = 150;
+                        itemPrices[GRENADELAUNCHER] = ConstantInventoryValues.GrenadeLauncher_Ammo_Cost;
                     }
                     inventory[GRENADELAUNCHER] += 1;
                     inventoryButtons[GRENADELAUNCHER].GetComponent<ButtonPlayerAction>().RefreshText(inventory[GRENADELAUNCHER].ToString());
@@ -106,10 +107,6 @@ public class PlayerInventory : MonoBehaviour {
             case "Turret":
                 if (Pay(itemPrices[TURRET]))
                 {
-                    if (itemPrices[TURRET] <= 1000)
-                    {
-                        itemPrices[TURRET] = 175;
-                    }
                     inventory[TURRET] += 2;
                     inventoryButtons[TURRET].GetComponent<ButtonPlayerAction>().RefreshText(inventory[TURRET].ToString());
                 }
@@ -117,10 +114,6 @@ public class PlayerInventory : MonoBehaviour {
             case "Mine":
                 if (Pay(itemPrices[MINE]))
                 {
-                    if (itemPrices[MINE] <= 1000)
-                    {
-                        itemPrices[MINE] = 175;
-                    }
                     inventory[MINE] += 2;
                     inventoryButtons[MINE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[MINE].ToString());
                 }
@@ -128,13 +121,14 @@ public class PlayerInventory : MonoBehaviour {
             case "TowerHealth":
                 if (Pay(itemPrices[TOWERHEALTH]))
                 {
-                    Debug.Log("Tower Health");
+                    tower.changeHealth(20);
                 }
                 break;
             case "TowerArmor":
                 if (Pay(itemPrices[TOWERARMOR]))
                 {
-                    Debug.Log("Tower Armor");
+                    //Temporairement un moyen de rapidement endommager la tour
+                    tower.changeHealth(-20);
                 }
                 break;
             default:
