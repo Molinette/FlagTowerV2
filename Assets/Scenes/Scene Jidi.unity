@@ -2442,11 +2442,11 @@ Prefab:
     - target: {fileID: 11429658, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
       propertyPath: enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 139516, guid: 6381774a718a29243a41eb4a21de4704, type: 2}
+      objectReference: {fileID: 194622, guid: d2b8c2432437617448b4de28b2ca1775, type: 2}
     - target: {fileID: 11429658, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
       propertyPath: enemies.Array.data[1]
       value: 
-      objectReference: {fileID: 139516, guid: 6381774a718a29243a41eb4a21de4704, type: 2}
+      objectReference: {fileID: 139516, guid: d0624c14f81daa34597fe6980eb66c68, type: 2}
     - target: {fileID: 123046, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
       propertyPath: m_Icon
       value: 
@@ -2458,7 +2458,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11429658, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
       propertyPath: SpawnTime
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 455942, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
       propertyPath: m_LocalPosition.x
