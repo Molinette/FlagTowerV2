@@ -38,9 +38,6 @@ public class TowerDownScript : MonoBehaviour {
 		}
     }
 
-	void Update () {
-
-	}
 		
     //Increment or decrement health depending on the health passed by parameter
     public void changeHealth(float healthAmount){
@@ -61,6 +58,19 @@ public class TowerDownScript : MonoBehaviour {
     //Get height from step based on steps height
     private float stepToHeight(float step){
         return step * stepHeight;
+    }
+
+    //currentStep getter
+    public float getCurrentStep() {
+
+        return currentStep;
+    }
+
+    //currentStep setter
+    public void setCurrentStep(float currentStep){
+
+        this.currentStep = currentStep;
+
     }
 
 }
