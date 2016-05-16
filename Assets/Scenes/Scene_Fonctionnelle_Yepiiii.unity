@@ -2382,6 +2382,10 @@ Prefab:
       propertyPath: enemies.Array.data[3]
       value: 
       objectReference: {fileID: 139516, guid: 6381774a718a29243a41eb4a21de4704, type: 2}
+    - target: {fileID: 11429658, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
+      propertyPath: SpawnTime
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
   m_IsPrefabParent: 0
