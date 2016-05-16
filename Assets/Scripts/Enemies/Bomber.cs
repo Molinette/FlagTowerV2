@@ -6,7 +6,6 @@ public class Bomber : Enemy {
 	private GameObject tower;
     private GameObject character;
     private bool isTowerDown  = false;
-   
 
 	public override void Start(){
 		base.Start();
