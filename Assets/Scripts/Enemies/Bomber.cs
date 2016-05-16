@@ -4,11 +4,14 @@ using System.Collections;
 public class Bomber : Enemy {
 	public GameObject explosion;
 	private GameObject tower;
+	private GameObject spawnManager;
 
 	public override void Start(){
 		base.Start();
 		tower = GameObject.FindGameObjectWithTag("Tower");
 		target = tower.transform;
+		spawnManager = GameObject.Find("SpawnManager");
+		spawnManager.GetComponent<EnemiesCounter> ().IncBomber();
 	}
 
 	void OnCollisionEnter2D(Collision2D collision){

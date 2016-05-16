@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5001502}
   - 61: {fileID: 6103408}
   - 114: {fileID: 11429790}
+  - 114: {fileID: 11487134}
   m_Layer: 11
   m_Name: Flag
   m_TagString: Flag
@@ -75,6 +76,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverText: {fileID: 0}
   pauseDuration: 4
+--- !u!114 &11487134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f878385f73898384284e552f63c8c53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetTimer: 3
 --- !u!212 &21224252
 SpriteRenderer:
   m_ObjectHideFlags: 1
