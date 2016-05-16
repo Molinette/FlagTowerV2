@@ -26,6 +26,15 @@ public class PlayerInventory : MonoBehaviour {
     public Text moneyText;
     public TowerDownScript tower;
 
+    public Pistol pistol;
+    //public Katana katana;
+    public AssaultRifle rifle;
+    public Shotgun shotgun;
+    public RocketLauncher rpg;
+    public GrenadeLauncher grenadeLauncher;
+    public Placeable turret;
+    public Placeable mine;
+
     public void Start()
     {
         inventoryButtons = GameObject.FindGameObjectsWithTag("InventoryButton");
@@ -33,15 +42,15 @@ public class PlayerInventory : MonoBehaviour {
 
 
 
-        itemPrices[KATANA] = ConstantInventoryValues.Katana_Initial_Cost;
-        itemPrices[RIFLE] = ConstantInventoryValues.Rifle_Initial_Cost;
-        itemPrices[SHOTGUN] = ConstantInventoryValues.Shotgun_Initial_Cost;
-        itemPrices[RPG] = ConstantInventoryValues.RPG_Initial_Cost;
-        itemPrices[GRENADELAUNCHER] = ConstantInventoryValues.GrenadeLauncher_Initial_Cost;
-        itemPrices[TURRET] = ConstantInventoryValues.Turret_Cost;
-        itemPrices[MINE] = ConstantInventoryValues.Mine_Cost;
-        itemPrices[TOWERHEALTH] = ConstantInventoryValues.Tower_Health_Cost;
-        itemPrices[TOWERARMOR] = ConstantInventoryValues.Tower_Armor_Cost;
+        itemPrices[KATANA] = ConstantInventoryValues.KATANA_INITIAL_COST;
+        itemPrices[RIFLE] = ConstantInventoryValues.RIFLE_INITIAL_COST;
+        itemPrices[SHOTGUN] = ConstantInventoryValues.SHOTGUN_INITIAL_COST;
+        itemPrices[RPG] = ConstantInventoryValues.RPG_INITIAL_COST;
+        itemPrices[GRENADELAUNCHER] = ConstantInventoryValues.GRENADELAUNCHER_INITIAL_COST;
+        itemPrices[TURRET] = ConstantInventoryValues.TURRET_COST;
+        itemPrices[MINE] = ConstantInventoryValues.MINE_COST;
+        itemPrices[TOWERHEALTH] = ConstantInventoryValues.TOWER_HEALTH_COST;
+        itemPrices[TOWERARMOR] = ConstantInventoryValues.TOWER_ARMOR_COST;
         refreshMoneyText();
         
     }
@@ -50,9 +59,9 @@ public class PlayerInventory : MonoBehaviour {
     {
         switch (item)
         {
-            case "Katana":
+            case ConstantInventoryValues.KATANA:
                 if (Pay(itemPrices[KATANA])) {
-                    if (itemPrices[KATANA] == ConstantInventoryValues.Katana_Initial_Cost)
+                    if (itemPrices[KATANA] == ConstantInventoryValues.KATANA_INITIAL_COST)
                     {
                         inventory[KATANA] += 1;
                         inventoryButtons[KATANA].GetComponent<ButtonPlayerAction>().RefreshText(inventory[KATANA].ToString());
@@ -60,71 +69,77 @@ public class PlayerInventory : MonoBehaviour {
                     }                    
                 }
                 break;
-            case "Rifle":
+            case ConstantInventoryValues.ASSAULT_RIFLE:
                 if (Pay(itemPrices[RIFLE]))
                 {
-                    if (itemPrices[RIFLE] <= ConstantInventoryValues.Rifle_Initial_Cost)
+                    if (itemPrices[RIFLE] <= ConstantInventoryValues.RIFLE_INITIAL_COST)
                     {
-                        itemPrices[RIFLE] = ConstantInventoryValues.Rifle_Ammo_Cost;
+                        itemPrices[RIFLE] = ConstantInventoryValues.RIFLE_AMMO_COST;
                     }
-                    inventory[RIFLE] += 30;
+                    inventory[RIFLE] += ConstantInventoryValues.RIFLE_AMMO_TO_ADD;
+                    rifle.addAmmo(ConstantInventoryValues.RIFLE_AMMO_TO_ADD);
                     inventoryButtons[RIFLE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RIFLE].ToString());
                 }
                 break;
-            case "Shotgun":
+            case ConstantInventoryValues.SHOTGUN:
                 if (Pay(itemPrices[SHOTGUN]))
                 {
-                    if (itemPrices[SHOTGUN] <= ConstantInventoryValues.Shotgun_Initial_Cost)
+                    if (itemPrices[SHOTGUN] <= ConstantInventoryValues.SHOTGUN_INITIAL_COST)
                     {
-                        itemPrices[SHOTGUN] = ConstantInventoryValues.Shotgun_Ammo_Cost;
+                        itemPrices[SHOTGUN] = ConstantInventoryValues.SHOTGUN_AMMO_COST;
                     }
-                    inventory[SHOTGUN] += 8;
+                    inventory[SHOTGUN] += ConstantInventoryValues.SHOTGUN_AMMO_TO_ADD;
+                    shotgun.addAmmo(ConstantInventoryValues.SHOTGUN_AMMO_TO_ADD);
                     inventoryButtons[SHOTGUN].GetComponent<ButtonPlayerAction>().RefreshText(inventory[SHOTGUN].ToString());
                 }
                 break;
-            case "RPG":
+            case ConstantInventoryValues.RPG:
                 if (Pay(itemPrices[RPG]))
                 {
-                    if (itemPrices[RPG] <= ConstantInventoryValues.RPG_Initial_Cost)
+                    if (itemPrices[RPG] <= ConstantInventoryValues.RPG_INITIAL_COST)
                     {
-                        itemPrices[RPG] = ConstantInventoryValues.RPG_Ammo_Cost;
+                        itemPrices[RPG] = ConstantInventoryValues.RPG_AMMO_COST;
                     }
-                    inventory[RPG] += 1;
+                    inventory[RPG] += ConstantInventoryValues.RPG_AMMO_TO_ADD;
+                    rpg.addAmmo(ConstantInventoryValues.RPG_AMMO_TO_ADD);
                     inventoryButtons[RPG].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RPG].ToString());
                 }
                 break;
-            case "GrenadeLauncher":
+            case ConstantInventoryValues.GRENADE_LAUNCHER:
                 if (Pay(itemPrices[GRENADELAUNCHER]))
                 {
-                    if (itemPrices[GRENADELAUNCHER] <= ConstantInventoryValues.GrenadeLauncher_Initial_Cost)
+                    if (itemPrices[GRENADELAUNCHER] <= ConstantInventoryValues.GRENADELAUNCHER_INITIAL_COST)
                     {
-                        itemPrices[GRENADELAUNCHER] = ConstantInventoryValues.GrenadeLauncher_Ammo_Cost;
+                        itemPrices[GRENADELAUNCHER] = ConstantInventoryValues.GRENADELAUNCHER_AMMO_COST;
                     }
-                    inventory[GRENADELAUNCHER] += 1;
+                    inventory[GRENADELAUNCHER] += ConstantInventoryValues.GRENADELAUNCHER_AMMO_TO_ADD;
+                    grenadeLauncher.addAmmo(ConstantInventoryValues.GRENADELAUNCHER_AMMO_TO_ADD);
                     inventoryButtons[GRENADELAUNCHER].GetComponent<ButtonPlayerAction>().RefreshText(inventory[GRENADELAUNCHER].ToString());
                 }
                 break;
-            case "Turret":
+            case ConstantInventoryValues.TURRET:
                 if (Pay(itemPrices[TURRET]))
                 {
-                    inventory[TURRET] += 2;
+                    inventory[TURRET] += ConstantInventoryValues.TURRET_SUPPLY_TO_ADD;
+                    turret.addAmmo(ConstantInventoryValues.TURRET_SUPPLY_TO_ADD);
                     inventoryButtons[TURRET].GetComponent<ButtonPlayerAction>().RefreshText(inventory[TURRET].ToString());
                 }
                 break;
-            case "Mine":
+            case ConstantInventoryValues.MINE:
                 if (Pay(itemPrices[MINE]))
                 {
-                    inventory[MINE] += 2;
+                    inventory[MINE] += ConstantInventoryValues.MINE_SUPPLY_TO_ADD;
+                    mine.addAmmo(ConstantInventoryValues.MINE_SUPPLY_TO_ADD);
                     inventoryButtons[MINE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[MINE].ToString());
                 }
                 break;
-            case "TowerHealth":
+            case ConstantInventoryValues.TOWER_HEALTH:
                 if (Pay(itemPrices[TOWERHEALTH]))
                 {
                     tower.changeHealth(20);
                 }
                 break;
-            case "TowerArmor":
+            case ConstantInventoryValues.TOWER_ARMOR:
                 if (Pay(itemPrices[TOWERARMOR]))
                 {
                     //Temporairement un moyen de rapidement endommager la tour

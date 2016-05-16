@@ -14,11 +14,14 @@ public class RangeWeapons : MonoBehaviour {
 	public AudioClip weaponSound;
 	public float firingCooldown;
 	protected float firingTimer;
+    protected int ammunition;
+    public PlayerInventory playerInventory;
 
 	public virtual void Start(){
 		source = GetComponent<AudioSource>();
 		firingTimer = firingCooldown;
-	}
+        ammunition = 0;
+    }
 		
 	public virtual void Update(){
 	
@@ -28,4 +31,15 @@ public class RangeWeapons : MonoBehaviour {
 	public void PlayWeaponSound(){
 		source.PlayOneShot(weaponSound, 1F);
 	}
+
+    public void addAmmo(int ammunition)
+    {
+        this.ammunition += ammunition;
+    }
+
+    protected void FireAmmo(){
+        if(ammunition > 0){
+            ammunition--;
+        }
+    }
 }

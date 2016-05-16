@@ -13,7 +13,7 @@ public class AssaultRifle : RangeWeapons {
 		mousePosition.z = -Camera.main.transform.position.z;
 		shootingDirection = (Vector2)Camera.main.ScreenToWorldPoint (mousePosition) - (Vector2)transform.position;
 
-		if (Input.GetMouseButton(0) && firingTimer >= firingCooldown)
+		if (Input.GetMouseButton(0) && firingTimer >= firingCooldown && ammunition > 0)
 		{
 			firingTimer = 0;
 			PlayWeaponSound ();
@@ -21,6 +21,8 @@ public class AssaultRifle : RangeWeapons {
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * projectileSpeed);
 			projectileInstance.GetComponent<Projectile>().SetDamage(damage);
+            playerInventory.useItem(ConstantInventoryValues.ASSAULT_RIFLE);
+            FireAmmo();
 		}
 	}
 }

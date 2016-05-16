@@ -17,7 +17,8 @@ public class RocketLauncher : RangeWeapons {
 		mousePosition.z = -Camera.main.transform.position.z;
 		shootingDirection = (Vector2)Camera.main.ScreenToWorldPoint (mousePosition) - (Vector2)transform.position;
 
-		if(Input.GetMouseButtonDown(0)  && firingTimer >= firingCooldown){
+		if(Input.GetMouseButtonDown(0)  && firingTimer >= firingCooldown && ammunition > 0)
+        {
 			firingTimer = 0;
 			PlayWeaponSound ();
 			//Instance the bullet and give it an initial speed in the direction of the mouse
@@ -26,6 +27,8 @@ public class RocketLauncher : RangeWeapons {
             projectileInstance.GetComponent<Missile>().SetMissileSpeed(projectileSpeed);
 			projectileInstance.GetComponent<Missile> ().SetIsHoming (isHoming);
 			projectileInstance.GetComponent<Projectile>().SetDamage(damage);
-		}
+            playerInventory.useItem(ConstantInventoryValues.RPG);
+            FireAmmo();
+        }
 	}
 }

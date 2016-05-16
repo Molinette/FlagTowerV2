@@ -5,11 +5,13 @@ public class Placeable : MonoBehaviour {
 	private bool isPlaced = false;
 	private bool inTrapZone = false;
 	public GameObject trapPrefab;
+    protected int ammunition;
+    public PlayerInventory playerInventory;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    // Use this for initialization
+    void Start () {
+        ammunition = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,16 +34,34 @@ public class Placeable : MonoBehaviour {
 				LayerMask placeableZoneLayer = LayerMask.NameToLayer("Ground");
 				hit = Physics2D.Raycast(mouseWorldPosition,Vector2.down, Mathf.Infinity, 1 << placeableZoneLayer);
 				transform.position = new Vector2(Mathf.Floor(mouseWorldPosition.x)+bounds.x/2,hit.point.y+bounds.y/2);
-				if(Input.GetMouseButtonDown(1)){
+				if(Input.GetMouseButtonDown(1) && ammunition > 0)
+                {
                     GameObject.Instantiate(trapPrefab,new Vector2(transform.position.x,transform.position.y-bounds.y/2),
 						Quaternion.Euler(trapPrefab.transform.eulerAngles));
-				}
+                    //playerInventory.useItem(ConstantInventoryValues.ROCKET_LAUNCHER);
+                    FireAmmo();
+                }
 			} else{
 				transform.position = new Vector2(mouseWorldPosition.x,mouseWorldPosition.y);
 			}
 		}
+
+
 	}
 
 	void FixedUpdate(){
 	}
+
+    public void addAmmo(int ammunition)
+    {
+        this.ammunition += ammunition;
+    }
+
+    protected void FireAmmo()
+    {
+        if (ammunition > 0)
+        {
+            ammunition--;
+        }
+    }
 }

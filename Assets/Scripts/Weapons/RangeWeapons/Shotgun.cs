@@ -20,7 +20,7 @@ public class Shotgun : RangeWeapons {
 		shootingDirection = (Vector2)Camera.main.ScreenToWorldPoint (mousePosition) - (Vector2)transform.position;
 		float shootingDirectionAngle = VectorAngle(shootingDirection);
 
-		if (Input.GetMouseButtonDown(0) && firingTimer >= firingCooldown)
+		if (Input.GetMouseButtonDown(0) && firingTimer >= firingCooldown && ammunition > 0)
 		{
 			firingTimer = 0;
 			PlayWeaponSound ();
@@ -38,8 +38,9 @@ public class Shotgun : RangeWeapons {
 				projectileInstance.GetComponent<Rigidbody2D>().velocity = (bulletDirection.normalized * projectileSpeed);
 				projectileInstance.GetComponent<Projectile>().SetDamage(damage);
 			}
-
-		}
+            playerInventory.useItem(ConstantInventoryValues.SHOTGUN);
+            FireAmmo();
+        }
 	}
 
 	float VectorAngle(Vector2 vector){

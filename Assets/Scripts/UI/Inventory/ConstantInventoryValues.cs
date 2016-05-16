@@ -3,29 +3,40 @@ using System.Collections;
 
 public static class ConstantInventoryValues {
 
-    public static int Katana_Initial_Cost = 1000;
-    public static int Rifle_Initial_Cost = 1000;
-    public static int Shotgun_Initial_Cost = 1000;
-    public static int RPG_Initial_Cost = 1000;
-    public static int GrenadeLauncher_Initial_Cost = 1000;
+    public const string PISTOL = "Pistol";
+    public const string KATANA = "Katana";
+    public const string ASSAULT_RIFLE = "Rifle";
+    public const string SHOTGUN = "Shotgun";
+    public const string GRENADE_LAUNCHER = "GrenadeLauncher";
+    public const string RPG = "RPG";
+    public const string TURRET = "Turret";
+    public const string MINE = "Mine";
+    public const string TOWER_HEALTH = "TowerHealth";
+    public const string TOWER_ARMOR = "TowerArmor";
 
-    public static int Rifle_Ammo_Cost = 50;
-    public static int Shotgun_Ammo_Cost = 150;
-    public static int RPG_Ammo_Cost = 200;
-    public static int GrenadeLauncher_Ammo_Cost = 200;
+    public const int KATANA_INITIAL_COST = 1000;
+    public const int RIFLE_INITIAL_COST = 1000;
+    public const int SHOTGUN_INITIAL_COST = 1000;
+    public const int RPG_INITIAL_COST = 1000;
+    public const int GRENADELAUNCHER_INITIAL_COST = 1000;
 
-    public static int Rifle_Ammo_To_Add = 300;
-    public static int Shotgun_Ammo_To_Add =80;
-    public static int RPG_Ammo_To_Add = 50;
-    public static int GrenadeLauncher_Ammo_To_Add = 50;
+    public const int RIFLE_AMMO_COST = 50;
+    public const int SHOTGUN_AMMO_COST = 150;
+    public const int RPG_AMMO_COST = 200;
+    public const int GRENADELAUNCHER_AMMO_COST = 200;
 
-    public static int Turret_Cost = 200;
-    public static int Mine_Cost = 200;
+    public const int RIFLE_AMMO_TO_ADD = 80;
+    public const int SHOTGUN_AMMO_TO_ADD = 50;
+    public const int RPG_AMMO_TO_ADD = 50;
+    public const int GRENADELAUNCHER_AMMO_TO_ADD = 50;
 
-    public static int Turret_Supply_To_Add = 40;
-    public static int Mine_Supply_To_Add = 80;
+    public const int TURRET_COST = 200;
+    public const int MINE_COST = 200;
 
-    public static int Tower_Health_Cost = 200;
-    public static int Tower_Armor_Cost = 200;
+    public const int TURRET_SUPPLY_TO_ADD = 1;
+    public const int MINE_SUPPLY_TO_ADD = 1;
+
+    public const int TOWER_HEALTH_COST = 200;
+    public const int TOWER_ARMOR_COST = 200;
 	
 }

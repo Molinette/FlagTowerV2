@@ -22,6 +22,7 @@ public class Pistol : RangeWeapons {
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
 			projectileInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * projectileSpeed);
 			projectileInstance.GetComponent<Projectile>().SetDamage(damage);
-		}
+            playerInventory.useItem(ConstantInventoryValues.PISTOL);
+        }
 	}
 }
