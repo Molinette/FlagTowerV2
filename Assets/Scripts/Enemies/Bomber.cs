@@ -6,12 +6,15 @@ public class Bomber : Enemy {
 	private GameObject tower;
     private GameObject character;
     private bool isTowerDown  = false;
+	private GameObject spawnManager;
 
 	public override void Start(){
 		base.Start();
 		tower = GameObject.FindGameObjectWithTag("Tower");
         character = GameObject.FindGameObjectWithTag("Character");
 		target = tower.transform;
+		spawnManager = GameObject.Find("SpawnManager");
+		spawnManager.GetComponent<EnemiesCounter> ().IncBomber();
 	}
     
     void Update (){
