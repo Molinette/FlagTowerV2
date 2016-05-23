@@ -166,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.252008, y: 3.540902, z: 0}
+  m_LocalPosition: {x: 11.822683, y: 4.974435, z: 10}
   m_LocalScale: {x: 8, y: 3, z: 1}
   m_Children:
   - {fileID: 444450}
@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 168094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6875, y: 0.9166667, z: 0}
+  m_LocalPosition: {x: -0.6875, y: 0.9166667, z: 1}
   m_LocalScale: {x: 0.375, y: 0.16666667, z: 1}
   m_Children:
   - {fileID: 491196}
@@ -232,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6875, y: 0.9166667, z: 0}
+  m_LocalPosition: {x: 0.6875, y: 0.9166667, z: 1}
   m_LocalScale: {x: 0.375, y: 0.16666667, z: 1}
   m_Children:
   - {fileID: 459874}
@@ -410,7 +410,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cfa5522013cec2a43a277ec02ddb87da, type: 3}
   m_Color: {r: 0.11764707, g: 0.14117648, b: 0.18431373, a: 1}
   m_FlipX: 0
@@ -440,7 +440,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c554339a77aa1d2489b0bcc669379b0a, type: 3}
   m_Color: {r: 0.11764707, g: 0.14117648, b: 0.18431373, a: 1}
   m_FlipX: 0
@@ -470,7 +470,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cfa5522013cec2a43a277ec02ddb87da, type: 3}
   m_Color: {r: 0.11764707, g: 0.14117648, b: 0.18431373, a: 1}
   m_FlipX: 0
@@ -485,6 +485,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
