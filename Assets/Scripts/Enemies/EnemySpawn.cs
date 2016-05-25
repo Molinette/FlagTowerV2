@@ -3,9 +3,13 @@ using System.Collections;
 
 public class EnemySpawn : MonoBehaviour {
 
-
-	public Transform [] differentSpawnPoints;
+	public Transform [] groundSpawnPoint;
+	public Transform [] airSpawnPoint;
 	public GameObject [] enemies;
+	private Transform location;
+	private GameObject chosenEnemie;
+	private int value;
+
 
 	public float SpawnTime;
 
@@ -16,18 +20,32 @@ public class EnemySpawn : MonoBehaviour {
 
 	IEnumerator Spawn() {
 		while(true) {
-			Transform location = getRandomSpawnPoint ();
-			Instantiate (enemies[getEnemy()], location.position, Quaternion.identity);
+			getEnemy ();
+			Instantiate (chosenEnemie, location.position, Quaternion.identity);
 			yield return new WaitForSeconds (SpawnTime);
 		}
 	}
 
-	Transform getRandomSpawnPoint() {
-		return differentSpawnPoints[Random.Range (0, differentSpawnPoints.Length)];
+	Transform getRandomGroundPoint() {
+		return groundSpawnPoint[Random.Range (0, groundSpawnPoint.Length)];
+	}
+
+	Transform getRandomAirPoint() {
+		return airSpawnPoint[Random.Range (0, airSpawnPoint.Length)];
 	}
 
     int getEnemy()
     {
-        return Random.Range(0, enemies.Length);
+		value = Random.Range(0, enemies.Length);
+		if (value == 4) {
+			chosenEnemie = enemies [value];
+			location = airSpawnPoint[getRandomAirPoint];
+		} 
+
+		else {
+			chosenEnemie = enemies [value];
+			location = groundSpawnPoint[getRandomGroundPoint];
+		}
+			
     }
 }
