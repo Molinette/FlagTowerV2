@@ -208,12 +208,10 @@ public class PlayerInventory : MonoBehaviour {
         switch (item)
         {
             case "Pistol":
-                Debug.Log("Use Pistol");
                 break;
             case "Katana":
                 if(inventory[KATANA] > 0)
                 {
-                    Debug.Log("Use Katana");
                 }
                 break;
             case "Rifle":
@@ -221,7 +219,6 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[RIFLE] = inventory[RIFLE] - 1;
                     inventoryButtons[RIFLE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RIFLE].ToString());
-                    Debug.Log("Use Rifle");
                 }
                 break;
             case "Shotgun":
@@ -229,7 +226,6 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[SHOTGUN] = inventory[SHOTGUN] - 1;
                     inventoryButtons[SHOTGUN].GetComponent<ButtonPlayerAction>().RefreshText(inventory[SHOTGUN].ToString());
-                    Debug.Log("Use Shotgun");
                 }
                 break;
             case "RPG":
@@ -237,7 +233,6 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[RPG] = inventory[RPG] - 1;
                     inventoryButtons[RPG].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RPG].ToString());
-                    Debug.Log("Use RPG");
                 }
                 break;
             case "GrenadeLauncher":
@@ -245,7 +240,6 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[GRENADELAUNCHER] = inventory[GRENADELAUNCHER] - 1;
                     inventoryButtons[GRENADELAUNCHER].GetComponent<ButtonPlayerAction>().RefreshText(inventory[GRENADELAUNCHER].ToString());
-                    Debug.Log("Use Grenade Launcher");
                 }
                 
                 break;
@@ -254,7 +248,6 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[TURRET] = inventory[TURRET] - 1;
                     inventoryButtons[TURRET].GetComponent<ButtonPlayerAction>().RefreshText(inventory[TURRET].ToString());
-                    Debug.Log("Place Turret");
                 }
                 break;
             case "Mine":
@@ -262,7 +255,6 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[MINE] = inventory[MINE] - 1;
                     inventoryButtons[MINE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[MINE].ToString());
-                    Debug.Log("Place Mine");
                 }
                 break;
             default:

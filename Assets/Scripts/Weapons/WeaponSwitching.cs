@@ -11,11 +11,11 @@ public class WeaponSwitching : MonoBehaviour {
 	public GameObject mine;
 	public GameObject turret;
 
-	void Start () {
+    bool gameHasStarted = false;
 
-		resetWeapons();
-		pistol.SetActive (true);
-	}
+	void Start () {
+        //Tous les armes doivent être actif ici
+    }
 
 	void Update () {
 
@@ -81,6 +81,13 @@ public class WeaponSwitching : MonoBehaviour {
     }
 
     void checkWeapons(){
+
+        if (gameHasStarted == false)
+        {
+            resetWeapons();
+            gameHasStarted = true;
+            pistol.SetActive(true);
+        }
 
 		if (Input.GetKeyDown ("1")) {
 			resetWeapons();
