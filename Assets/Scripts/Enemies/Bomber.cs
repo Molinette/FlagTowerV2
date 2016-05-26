@@ -8,7 +8,7 @@ public class Bomber : Enemy {
     private bool isTowerDown  = false;
 	private GameObject spawnManager;
 	private Vector2 directionDuPush = new Vector2(1,1);
-	private float nextTime;
+
 
 	public override void Start(){
 		base.Start();
@@ -46,7 +46,7 @@ public class Bomber : Enemy {
 				float directionX = (collision.collider.gameObject.transform.position.x - transform.position.x) / Mathf.Abs (collision.collider.gameObject.transform.position.x - transform.position.x);
 				collision.collider.gameObject.transform.parent.GetComponent<PlayerController> ().Push(new Vector2(directionX,1));
 			}
-           
+
 			GameObject.Instantiate(explosion,transform.position,explosion.transform.rotation);
 			Destroy(gameObject);
 		}
