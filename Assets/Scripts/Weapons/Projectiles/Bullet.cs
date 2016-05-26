@@ -28,6 +28,7 @@ public class Bullet : Projectile{
 			Enemy currentEnemy = collision.gameObject.GetComponent<Enemy> ();
 			if (currentEnemy) {
 				currentEnemy.ReceiveDamage (damage);
+				print("nigga");
 			}
 		}
 		Destroy (gameObject);

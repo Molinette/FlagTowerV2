@@ -34,7 +34,7 @@ public class AirStriker : Enemy {
 
 	IEnumerator Drop () {
 		while (true) {
-			Instantiate (ObjectsToDrop[GameObjectToSpawn], transform.FindChild ("DropAnchor").position, Quaternion.identity);
+			Instantiate (ObjectsToDrop[GetObjectToSpawn()], transform.FindChild ("DropAnchor").position, Quaternion.identity);
 			yield return new WaitForSeconds (SpawnTime);
 		}
 	}
@@ -45,6 +45,15 @@ public class AirStriker : Enemy {
 			return 1;
 		}
 		return 0; //The airstrike spawned on the right.
+	}
+
+	public int GetObjectToSpawn(){
+		if(Random.Range(0,11) < 2){
+			return 1;
+		}
+		else{
+			return 0;
+		}
 	}
 			
 }

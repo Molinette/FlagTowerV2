@@ -88,14 +88,13 @@ public class Runner : Enemy {
 
 	void OnTriggerEnter2D (Collider2D collider) {
 		if (collider.CompareTag ("Flag")) {
-            print(mainFlag.GetComponent<FlagReset>());
 			collider.transform.parent.transform.parent = gameObject.transform;
 			collider.transform.parent.position = flagHoldingPos.transform.position;
 			collider.transform.parent.GetComponent<Rigidbody2D>().isKinematic = true;
 			//Ligne ajouté le 5/10/2016 par Julien pour dire que le flag est taken
 			mainFlag.GetComponent<FlagReset>().SetTaken(true);
 			hasFlag = true;
-			movingState = MovingStates.FollowTarget;
+			movingState = MovingStates.StealTarget;
 		}
 	}
 

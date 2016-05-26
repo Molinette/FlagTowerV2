@@ -86,7 +86,8 @@ MonoBehaviour:
   projectile: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
   damage: 5
   weaponSound: {fileID: 0}
-  firingCooldown: 0.5
+  firingCooldown: 0.25
+  playerInventory: {fileID: 0}
 --- !u!212 &21218126
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -123,7 +124,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: firingCooldown
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144152}
