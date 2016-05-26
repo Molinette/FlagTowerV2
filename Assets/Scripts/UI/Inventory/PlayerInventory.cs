@@ -15,8 +15,8 @@ public class PlayerInventory : MonoBehaviour {
     private const int TOWERHEALTH = 8;
     private const int TOWERARMOR = 9;
 
-    private int money = 50000;
-
+    private int money  = 50000;
+	private float reward = 20000;
     private int[] inventory = new int[8];
 
     private int[] itemPrices = new int[10];
@@ -54,6 +54,10 @@ public class PlayerInventory : MonoBehaviour {
         refreshMoneyText();
         
     }
+
+	public void Update(){
+		print (reward);
+	}
 
     public void addItem(string item)
     {
@@ -269,4 +273,21 @@ public class PlayerInventory : MonoBehaviour {
                 break;
         }
     }
+
+	public void setMoney(int money){
+
+		this.money = money;
+	}
+
+	public int getMoney(){
+
+		return money;
+
+	}
+
+	public void Penalize (){
+
+
+		reward = Mathf.Max(reward - 1000 * Time.deltaTime,0);
+	}
 }

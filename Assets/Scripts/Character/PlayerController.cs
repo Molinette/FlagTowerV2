@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 	public float runningAcceleration = 40f;
 	public float breakingAcceleration = 16f;
 	public float jumpingForce = 8f;
+	public int freezeDuration = 5;
+
 
 	//Animation
 	public GameObject body;
@@ -20,6 +22,9 @@ public class PlayerController : MonoBehaviour {
 	private LayerMask platformLayer;
 	private float groundCheckRadius = 0.25f;
 	private Vector2 feetLocalPosition = new Vector2(0,-1);
+	private bool isFrozen = false;
+	private float nextTime;
+
 
 	//The character's rigid body
 	private Rigidbody2D rb;
@@ -34,6 +39,10 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if(Time.time >= nextTime){
+
+			SetIsFrozen (false);
+		}
 	}
 
 	void FixedUpdate(){
@@ -51,37 +60,39 @@ public class PlayerController : MonoBehaviour {
 			groundCheckRadius, 1 << groundLayer) || Physics2D.OverlapCircle(transform.TransformPoint(feetLocalPosition),
 				groundCheckRadius, 1 << platformLayer);
 ;
-		//Jump mechanic
-		if(jumpInput > 0 && isGrounded && rb.velocity.y == 0){
-			rb.AddForce(Vector2.up * jumpingForce,ForceMode2D.Impulse);
-		}
+		if(!isFrozen){
 
-		//Moving mechanic
-		/*Adds acceleration to the current velocity and affect it to the rigidbody
-		depending on the direction*/
-		if(horizontalInput > 0){
-			body.GetComponent<SpriteRenderer>().flipX = true;
-			velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime*horizontalInput;
-			rb.velocity = new Vector2(Mathf.Min(velocityX,maxRunningVelocity),rb.velocity.y);
-		}
-		else if(horizontalInput < 0){
-			body.GetComponent<SpriteRenderer>().flipX = false;
-			velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime*horizontalInput;
-			rb.velocity = new Vector2(Mathf.Max(velocityX,-maxRunningVelocity),rb.velocity.y);
-		}
-		else{
-			if(isGrounded){
-				if(rb.velocity.x > 0){
-					velocityX = rb.velocity.x - breakingAcceleration*Time.deltaTime;
-					rb.velocity = new Vector2(Mathf.Max(velocityX,0),rb.velocity.y);
-				}
-				else if(rb.velocity.x < 0){
+				//Jump mechanic
+			if(jumpInput > 0 && isGrounded && rb.velocity.y == 0){
+			rb.AddForce(Vector2.up * jumpingForce,ForceMode2D.Impulse);
+			}
+
+			//Moving mechanic
+			/*Adds acceleration to the current velocity and affect it to the rigidbody
+			depending on the direction*/
+			if(horizontalInput > 0){
+				body.GetComponent<SpriteRenderer>().flipX = true;
+				velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime*horizontalInput;
+				rb.velocity = new Vector2(Mathf.Min(velocityX,maxRunningVelocity),rb.velocity.y);
+			}
+			else if(horizontalInput < 0){
+				body.GetComponent<SpriteRenderer>().flipX = false;
+				velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime*horizontalInput;
+				rb.velocity = new Vector2(Mathf.Max(velocityX,-maxRunningVelocity),rb.velocity.y);
+			}
+			else{
+				if(isGrounded){
+					if(rb.velocity.x > 0){
+						velocityX = rb.velocity.x - breakingAcceleration*Time.deltaTime;
+						rb.velocity = new Vector2(Mathf.Max(velocityX,0),rb.velocity.y);
+					}
+					else if(rb.velocity.x < 0){
 					velocityX = rb.velocity.x + breakingAcceleration*Time.deltaTime;
 					rb.velocity = new Vector2(Mathf.Min(velocityX,0),rb.velocity.y);
+					}
 				}
 			}
 		}
-
 	}
 
 	void OnCollisionStay2D(Collision2D collision){
@@ -95,5 +106,18 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	public void SetIsFrozen(bool isFrozen){
+
+
+		this.isFrozen = isFrozen;
+	}
+
+	public void Push(Vector2 direction){
+
+		rb.AddForce (direction * 3, ForceMode2D.Impulse);
+		SetIsFrozen (true);
+		nextTime = Time.time + freezeDuration;
 	}
 }

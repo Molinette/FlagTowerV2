@@ -42,6 +42,19 @@ public class Destroyer : Enemy {
 		}
 	}
 
+	void OnCollisionEnter2D(Collision2D collision){
+		if(!collision.collider.gameObject.CompareTag("Ground")){
+
+			if(collision.collider.gameObject.CompareTag("Character")
+				&& tower.GetComponent<TowerDownScript>().getCurrentStep() == 0){
+				float directionX = (collision.collider.gameObject.transform.position.x - transform.position.x) / Mathf.Abs (collision.collider.gameObject.transform.position.x - transform.position.x);
+				collision.collider.gameObject.transform.parent.GetComponent<PlayerController> ().Push(new Vector2(directionX,1));
+			}
+
+
+		}
+	}
+
 	public override void Damage () {
 		tower.GetComponent<TowerDownScript>().changeHealth(-damage);
 	}

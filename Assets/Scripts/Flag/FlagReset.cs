@@ -13,6 +13,7 @@ public class FlagReset : MonoBehaviour {
 	private float idleTimer = 2f;
 	private float resetIdleTimer;
 	private float resetSpawnTimer;
+	private PlayerInventory playerInventory ;
 
 	void Start () {
 
@@ -21,12 +22,19 @@ public class FlagReset : MonoBehaviour {
 		startingPosition = gameObject.transform.position;
 		resetIdleTimer = idleTimer;
 		resetSpawnTimer = spawnTimer;
+		playerInventory = GameObject.Find("Character").GetComponent<PlayerInventory>();
+
 	}
 
 	void Update () {
 
 		ResetFlag ();
 		IsItIdle ();
+		if(isTaken) {
+			
+			playerInventory.Penalize ();
+
+		}
 	}
 
 	public void SetTaken(bool isTaken){

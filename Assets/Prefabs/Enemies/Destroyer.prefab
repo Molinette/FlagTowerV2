@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22428660}
   - 222: {fileID: 22233510}
   - 114: {fileID: 11498696}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402424}
   - 61: {fileID: 6194366}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: TopCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 408320}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - 223: {fileID: 22324844}
   - 114: {fileID: 11415490}
   - 114: {fileID: 11464346}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 411428}
   - 212: {fileID: 21220202}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: BodySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - 4: {fileID: 408108}
   - 50: {fileID: 5068368}
   - 114: {fileID: 11424348}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: Destroyer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - 224: {fileID: 22470316}
   - 222: {fileID: 22241946}
   - 114: {fileID: 11440908}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454084}
   - 58: {fileID: 5889848}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: BottomCollide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 447722}
   - 61: {fileID: 6123212}
-  m_Layer: 10
+  m_Layer: 17
   m_Name: Hitbox
   m_TagString: Hitbox
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - 224: {fileID: 22440560}
   - 222: {fileID: 22220300}
   - 114: {fileID: 11477122}
-  m_Layer: 15
+  m_Layer: 17
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,6 +505,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
