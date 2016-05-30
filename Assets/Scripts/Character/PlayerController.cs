@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void Push(Vector2 direction){
 
-		rb.AddForce (direction * 3, ForceMode2D.Impulse);
+		rb.AddForce (direction * 10, ForceMode2D.Impulse);
 		SetIsFrozen (true);
 		nextTime = Time.time + freezeDuration;
 	}
