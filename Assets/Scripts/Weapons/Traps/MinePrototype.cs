@@ -33,7 +33,7 @@ public class MinePrototype : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.CompareTag("Enemy") || other.CompareTag("Character")){
+		if(other.CompareTag("Hitbox") || other.CompareTag("Character")){
 			Explode();
 			GameObject.Instantiate(explosionPrefab,transform.position,Quaternion.Euler(explosionPrefab.transform.eulerAngles));
 			Destroy(gameObject);
