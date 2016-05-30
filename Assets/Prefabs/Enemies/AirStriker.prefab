@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.150845, y: 13.423789, z: 0}
+  m_LocalPosition: {x: 4.8398895, y: 2.0534148, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 427464}
@@ -224,12 +224,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 1
+  m_GravityScale: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6193774
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -262,17 +262,16 @@ MonoBehaviour:
   jumpingForce: 8
   target: {fileID: 0}
   damage: 0
-  max_health: 200
-  health_bar: {fileID: 140802, guid: 8767c04cef04c7e4ea8aea5c583f9d5f, type: 2}
+  max_health: 20
+  health_bar: {fileID: 125118}
   animation: {fileID: 0}
   ObjectsToDrop:
   - {fileID: 111034, guid: 16081b9bad4ca5f4db2e368ca3eafb1c, type: 2}
   - {fileID: 194622, guid: d2b8c2432437617448b4de28b2ca1775, type: 2}
-  - {fileID: 123360, guid: c8000085dcce8fb41a3f66569c406e16, type: 2}
   Targets:
   - {fileID: 413380, guid: 59a8a87dcbf4609458ff06319b1a06bd, type: 2}
   - {fileID: 479496, guid: 850f1485eccad9d4b8b41a715eced852, type: 2}
-  GameObjectToSpawn: 1
+  GameObjectToSpawn: 0
 --- !u!114 &11440110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,7 +540,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ObjectsToDrop.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ObjectsToDrop.Array.data[0]
@@ -557,7 +556,7 @@ Prefab:
       objectReference: {fileID: 123360, guid: c8000085dcce8fb41a3f66569c406e16, type: 2}
     - target: {fileID: 0}
       propertyPath: max_health
-      value: 200
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: health_bar
@@ -577,7 +576,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_TagString
@@ -593,7 +592,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: GameObjectToSpawn
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
