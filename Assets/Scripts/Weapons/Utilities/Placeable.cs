@@ -8,6 +8,9 @@ public class Placeable : MonoBehaviour {
     protected int ammunition;
     public PlayerInventory playerInventory;
 
+    public bool isTurret;
+    public bool isMine;
+
     // Use this for initialization
     void Start () {
         ammunition = 0;
@@ -38,7 +41,14 @@ public class Placeable : MonoBehaviour {
                 {
                     GameObject.Instantiate(trapPrefab,new Vector2(transform.position.x,transform.position.y-bounds.y/2),
 						Quaternion.Euler(trapPrefab.transform.eulerAngles));
-                    //playerInventory.useItem(ConstantInventoryValues.ROCKET_LAUNCHER);
+                    if (isTurret)
+                    {
+                        playerInventory.useItem(ConstantInventoryValues.TURRET);
+                    }
+                    else if (isMine)
+                    {
+                        playerInventory.useItem(ConstantInventoryValues.MINE);
+                    }
                     FireAmmo();
                 }
 			} else{
