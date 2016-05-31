@@ -11,5 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene Principale.unity
   - enabled: 0
     path: Assets/Scenes/Scene Principale Molinette.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_Fonctionnelle_A_Dupliquer_Molinette.unity

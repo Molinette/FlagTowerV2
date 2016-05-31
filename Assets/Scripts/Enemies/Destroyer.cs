@@ -6,12 +6,15 @@ public class Destroyer : Enemy {
 	public float attackDelay;
 	private float nextAttackTime = 0;
 	private GameObject tower;
+	private bool isTowerDown  = false;
+	private GameObject character;
 	private bool attackState = false;
 	private GameObject spawnManager;
 
 	public override void Start(){
 		base.Start();
 		tower = GameObject.FindGameObjectWithTag("Tower");
+		character = GameObject.FindGameObjectWithTag("Character");
 		target = tower.transform;
 		spawnManager = GameObject.Find("SpawnManager");
 		spawnManager.GetComponent<EnemiesCounter> ().IncDestroyer();
@@ -26,12 +29,26 @@ public class Destroyer : Enemy {
 				}
 			}
 		}
+
+		//Looks if the tower is down
+		if (tower.GetComponent<TowerDownScript>().getCurrentStep() <= 0){
+			isTowerDown = true;
+			target = character.transform;
+			movingState = MovingStates.FollowTarget;
+			attackState = false;
+		}
 	}
 
 	public void OnTriggerEnter2D(Collider2D other){
-		if(other.CompareTag("TowerAttackingZone")){
+		if(other.CompareTag("TowerAttackingZone") && !isTowerDown){
 			movingState = MovingStates.Idle;
 			attackState = true;
+		}
+
+		if(other.CompareTag("Character")
+			&& isTowerDown){
+			float directionX = (other.transform.position.x - transform.position.x) / Mathf.Abs (other.transform.position.x - transform.position.x);
+			other.transform.parent.GetComponent<PlayerController> ().Push(new Vector2(directionX,1));
 		}
 	}
 
@@ -45,11 +62,6 @@ public class Destroyer : Enemy {
 	void OnCollisionEnter2D(Collision2D collision){
 		if(!collision.collider.gameObject.CompareTag("Ground")){
 
-			if(collision.collider.gameObject.CompareTag("Character")
-				&& tower.GetComponent<TowerDownScript>().getCurrentStep() == 0){
-				float directionX = (collision.collider.gameObject.transform.position.x - transform.position.x) / Mathf.Abs (collision.collider.gameObject.transform.position.x - transform.position.x);
-				collision.collider.gameObject.transform.parent.GetComponent<PlayerController> ().Push(new Vector2(directionX,1));
-			}
 
 
 		}

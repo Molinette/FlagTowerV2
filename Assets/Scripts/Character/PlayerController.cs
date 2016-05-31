@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour {
 	//Push the player in a certain direction while freezing movement
 	public void Push(Vector2 direction){
 
-		rb.AddForce (direction * 10, ForceMode2D.Impulse);
+		rb.AddForce (direction * 5, ForceMode2D.Impulse);
 		SetIsFrozen (true);
 		nextTime = Time.time + freezeDuration;
 	}

@@ -7,7 +7,7 @@ public class AirStriker : Enemy {
 	public Transform [] Targets;
 	public int GameObjectToSpawn;
 
-	private float SpawnTime = 3f;
+	public float SpawnTime = 3f;
 	private int targetDirection;
 
 	public override void Start () {
