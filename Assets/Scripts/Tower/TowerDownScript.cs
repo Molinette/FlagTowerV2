@@ -33,6 +33,7 @@ public class TowerDownScript : MonoBehaviour {
 		for(int i = 0; i < totalSteps; i++){
 			Vector3 stepPosition = transform.position;
 			stepPosition.y += stepHeight*i;
+			stepPosition.z = 10;
 			stepInstance = (GameObject)GameObject.Instantiate(step, stepPosition, step.transform.rotation);
 			stepInstance.transform.parent = transform;
 		}

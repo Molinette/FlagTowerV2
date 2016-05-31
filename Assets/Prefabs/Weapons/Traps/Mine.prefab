@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21295668}
   - 114: {fileID: 11497176}
   - 61: {fileID: 6132074}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,8 +55,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd660ab0de5a7445889fd8db0410bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 0
-  explosionRadius: 0
+  damage: 50
+  explosionRadius: 5
   explosionPrefab: {fileID: 101690, guid: 08d2ea6130bdf16488607e34c797bd30, type: 2}
 --- !u!212 &21295668
 SpriteRenderer:
@@ -102,6 +102,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: explosionRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

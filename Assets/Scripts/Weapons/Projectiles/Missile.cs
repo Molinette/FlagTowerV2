@@ -37,6 +37,14 @@ public class Missile : Explosive {
 			Destroy (gameObject);
 	}
 
+	void OnTriggerEnter2D(Collider2D other){
+		if(other.CompareTag("Hitbox")){
+			Explode ();
+			GameObject.Instantiate (explosionPrefab, transform.position, Quaternion.Euler (explosionPrefab.transform.eulerAngles));
+			Destroy (gameObject);
+		}
+	}
+
 
 	void Explode(){
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,explosionRadius);

@@ -22,7 +22,6 @@ public class EnemiesCounter : MonoBehaviour {
 	void Update () {
 
 		totalEnemies = numRunner + numDestroyer + numBomber + numAirstriker;
-		print(numRunner);
 	}
 
 	public int GetRunner(){

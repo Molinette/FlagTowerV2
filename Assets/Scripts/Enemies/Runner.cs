@@ -24,7 +24,7 @@ public class Runner : Enemy {
 		base.Start();
 		target = GameObject.FindGameObjectWithTag("Flag").transform;
 		platformLayer = LayerMask.NameToLayer("Platform");
-		mainFlag = GameObject.FindGameObjectWithTag ("Flag");
+		mainFlag = GameObject.Find("Flag");
 		spawnManager = GameObject.Find("SpawnManager");
 		spawnManager.GetComponent<EnemiesCounter> ().IncRunner();
 	}
@@ -36,28 +36,28 @@ public class Runner : Enemy {
 		int direction;
 
 		switch(movingState){
-		case MovingStates.Left :
-			Move(-1);
-			break;
+			case MovingStates.Left :
+				Move(-1);
+				break;
 
-		case MovingStates.Right :
-			Move(1);
-			break;
+			case MovingStates.Right :
+				Move(1);
+				break;
 
-		case MovingStates.Jump :
-			Jump();
-			break;
-		case MovingStates.Idle :
-			Move(0);
-			break;
-		case MovingStates.FollowTarget :
-			direction = getTargetDirection(target.position);
-			Move(direction);
-			break;
-		case MovingStates.StealTarget :
-			direction = getTargetDirection(getClosestWinZone());
-			Move(direction);
-			break;
+			case MovingStates.Jump :
+				Jump();
+				break;
+			case MovingStates.Idle :
+				Move(0);
+				break;
+			case MovingStates.FollowTarget :
+				direction = getTargetDirection(target.position);
+				Move(direction);
+				break;
+			case MovingStates.StealTarget :
+				direction = getTargetDirection(getClosestWinZone());
+				Move(direction);
+				break;
 		}
 
 	}
@@ -68,6 +68,8 @@ public class Runner : Enemy {
 		}
 	}
 
+
+	//Find the closest winZone
 	Vector3 getClosestWinZone(){
 		Transform target;
 		GameObject[] winZones = GameObject.FindGameObjectsWithTag("WinZone");
@@ -87,15 +89,22 @@ public class Runner : Enemy {
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
+
 		if (collider.CompareTag ("Flag")) {
-            print(mainFlag.GetComponent<FlagReset>());
-			collider.transform.parent.transform.parent = gameObject.transform;
-			collider.transform.parent.position = flagHoldingPos.transform.position;
-			collider.transform.parent.GetComponent<Rigidbody2D>().isKinematic = true;
-			//Ligne ajouté le 5/10/2016 par Julien pour dire que le flag est taken
-			mainFlag.GetComponent<FlagReset>().SetTaken(true);
-			hasFlag = true;
-			movingState = MovingStates.FollowTarget;
+
+			//If the flag is not already taken
+			if(mainFlag.GetComponent<FlagReset>().GetTaken()==false){
+
+				//Give the flag to the runner
+				collider.transform.parent.transform.parent = gameObject.transform;
+				collider.transform.parent.position = flagHoldingPos.transform.position;
+				collider.transform.parent.GetComponent<Rigidbody2D>().isKinematic = true;
+
+
+				mainFlag.GetComponent<FlagReset>().SetTaken(true);
+				hasFlag = true;
+				movingState = MovingStates.StealTarget;
+			}
 		}
 	}
 
@@ -112,10 +121,8 @@ public class Runner : Enemy {
 	}
 
 	void DropFlag() {
-		GameObject flag = GameObject.FindGameObjectWithTag ("Flag");
-		flag.transform.parent = null;
-		flag.GetComponent<Rigidbody2D> ().isKinematic = false;
-		//Ligne ajouté le 5/10/2016 par Julien pour dire que le flag n'est plus en possession du runner
+		mainFlag.transform.parent = null;
+		mainFlag.GetComponent<Rigidbody2D> ().isKinematic = false;
 		mainFlag.GetComponent<FlagReset>().SetTaken(false);
 	}
 }

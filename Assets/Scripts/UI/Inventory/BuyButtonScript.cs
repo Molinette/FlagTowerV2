@@ -11,8 +11,8 @@ public class BuyButtonScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        playerInventory = GameObject.FindGameObjectWithTag("Character").GetComponent<PlayerInventory>();
-        Debug.Log(GameObject.FindGameObjectWithTag("Character").GetComponent<PlayerInventory>());
+        playerInventory = GameObject.Find("Character").GetComponent<PlayerInventory>();
+		ItemPriceText.text = playerInventory.getPrice(item) + "$";
     }
 	
 	// Update is called once per frame

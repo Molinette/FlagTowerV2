@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 		float horizontalInput = Input.GetAxis("Horizontal");
 		float jumpInput = Input.GetAxis("Jump");
 
+		//Sets running animation
 		anim.SetFloat("speed",Mathf.Abs(horizontalInput));
 
 		//New x velocity
@@ -80,8 +81,9 @@ public class PlayerController : MonoBehaviour {
 				velocityX = rb.velocity.x + runningAcceleration*Time.deltaTime*horizontalInput;
 				rb.velocity = new Vector2(Mathf.Max(velocityX,-maxRunningVelocity),rb.velocity.y);
 			}
-			else{
+			else{ 
 				if(isGrounded){
+					//Breaking
 					if(rb.velocity.x > 0){
 						velocityX = rb.velocity.x - breakingAcceleration*Time.deltaTime;
 						rb.velocity = new Vector2(Mathf.Max(velocityX,0),rb.velocity.y);
@@ -96,6 +98,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionStay2D(Collision2D collision){
+		
+		//If enters collision with a platform trigger, ignore collision
 		if(collision.collider.gameObject.transform.parent != null){
 			if(collision.collider.gameObject.transform.parent.CompareTag("Platform")){
 				if(Input.GetAxis("Vertical") < 0){
@@ -109,11 +113,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void SetIsFrozen(bool isFrozen){
-
-
 		this.isFrozen = isFrozen;
 	}
 
+	//Push the player in a certain direction while freezing movement
 	public void Push(Vector2 direction){
 
 		rb.AddForce (direction * 10, ForceMode2D.Impulse);

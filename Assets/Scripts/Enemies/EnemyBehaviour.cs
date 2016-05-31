@@ -21,7 +21,6 @@ public class EnemyBehaviour : MonoBehaviour
 
 	// Use this for initialization
 	public virtual void Start () {
-		Debug.Log (gameObject.name);
 		rb = gameObject.GetComponent<Rigidbody2D>();
 	}
 

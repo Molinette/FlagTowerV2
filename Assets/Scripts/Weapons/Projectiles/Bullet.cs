@@ -22,14 +22,18 @@ public class Bullet : Projectile{
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		if(collision.gameObject.CompareTag("Enemy")){
-			Enemy currentEnemy = collision.gameObject.GetComponent<Enemy> ();
+		if(other.CompareTag("Hitbox")){
+			Enemy currentEnemy = other.transform.parent.GetComponent<Enemy> ();
 			if (currentEnemy) {
 				currentEnemy.ReceiveDamage (damage);
 			}
 		}
 		Destroy (gameObject);
+	}
+
+	void OnCollisionEnter2D(Collision2D collision){
+		Destroy(gameObject);
 	}
 }
