@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour {
     private const int TOWERHEALTH = 8;
     private const int TOWERARMOR = 9;
 
-    private int money  = 4000;
+    private int money  = 2000;
 	private float reward = 2000;
     private int[] inventory = new int[8];
 
@@ -283,7 +283,7 @@ public class PlayerInventory : MonoBehaviour {
 	public void Penalize (){
 
 
-		reward = Mathf.Max(reward - 1000 * Time.deltaTime,0);
+		reward = Mathf.Max(reward - 200 * Time.deltaTime,0);
 		rewardText.text = Mathf.Floor(reward).ToString();
 	}
 }
