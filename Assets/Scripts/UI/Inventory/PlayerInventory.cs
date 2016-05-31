@@ -218,7 +218,7 @@ public class PlayerInventory : MonoBehaviour {
             case "Katana":
                 if(inventory[KATANA] > 0)
                 {
-
+                    
                 }
                 break;
             case "Rifle":
