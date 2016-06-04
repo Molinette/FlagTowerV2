@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f9e2124aec4534f9cf3b6c9e966de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
   bulletSpeed: 25
   firingDelay: 2
   firingPosition: {fileID: 476068}
@@ -131,6 +132,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

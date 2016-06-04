@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TurretPrototype : MonoBehaviour {
 
+	public float damage;
     public float bulletSpeed;
     public float firingDelay;
     public Transform firingPosition;
@@ -34,6 +35,7 @@ public class TurretPrototype : MonoBehaviour {
             //Instance the bullet and give it an initial speed in the direction of the mouse
             bulletInstance = (GameObject)Instantiate(bullet, firingPosition.position, firingPosition.rotation);
             bulletInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * bulletSpeed);
+			bulletInstance.GetComponent<Bullet>().SetDamage(damage);
             fireTime = Time.time + firingDelay;
         }
 
