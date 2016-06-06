@@ -47,6 +47,7 @@ public class Missile : Explosive {
 
 
 	void Explode(){
+        PlayDestroyedSound();
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,explosionRadius);
 		foreach(Collider2D collider in colliders){
 			/*Rigidbody2D colliderRb = collider.gameObject.GetComponent<Rigidbody2D>();

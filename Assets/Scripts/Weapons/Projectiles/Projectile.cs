@@ -3,6 +3,8 @@ using System.Collections;
 
 public abstract class Projectile : MonoBehaviour {
 
+    private AudioSource source;
+    public AudioClip projectileSound;
 	protected float damage;
 
 	public void SetDamage(float damage){
@@ -14,6 +16,12 @@ public abstract class Projectile : MonoBehaviour {
 	
 		return damage;
 	}
+
+    public void PlayDestroyedSound()    {
+
+        source.PlayOneShot(projectileSound, 1F);
+
+    }
 
 
 }

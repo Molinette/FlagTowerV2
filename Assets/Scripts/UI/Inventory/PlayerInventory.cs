@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour {
     private const int TOWERHEALTH = 8;
     private const int TOWERARMOR = 9;
 
-    private int money  = 2000;
+    public int money  = 2000;
 	private float reward = 2000;
     private int[] inventory = new int[8];
 

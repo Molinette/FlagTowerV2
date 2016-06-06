@@ -7,11 +7,15 @@ public class GrenadePrototype : MonoBehaviour {
 	public float explosionForce;
 	public float explosionRadius;
 	public GameObject explosionPrefab;
+    private AudioSource source;
+    public AudioClip grenadeSound;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    // Use this for initialization
+    void Start () {
+
+        source = GetComponent<AudioSource>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,6 +29,9 @@ public class GrenadePrototype : MonoBehaviour {
 	}
 
 	void Explode(){
+
+        PlayGrenadeSound();
+
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,explosionRadius);
 		foreach(Collider2D collider in colliders){
 			/*Rigidbody2D colliderRb = collider.gameObject.GetComponent<Rigidbody2D>();
@@ -40,4 +47,10 @@ public class GrenadePrototype : MonoBehaviour {
 		}
 	}
 
+    public void PlayGrenadeSound()
+    {
+
+        source.PlayOneShot(grenadeSound, 1F);
+
+    }
 }
