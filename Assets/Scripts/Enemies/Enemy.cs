@@ -7,6 +7,7 @@ public class Enemy : EnemyBehaviour {
 	public float max_health;
 	protected float curr_health;
 	public GameObject health_bar;
+	protected GameManager gameManager;
 
 	//Target to follow
 	public Animator animation;
@@ -14,6 +15,7 @@ public class Enemy : EnemyBehaviour {
 	public override void Start(){
 		base.Start();
 		curr_health = max_health;
+		gameManager = Camera.main.GetComponent<GameManager>();
 	}
 
 	public virtual void Damage () {
@@ -23,6 +25,7 @@ public class Enemy : EnemyBehaviour {
 	public virtual void ReceiveDamage (float damage) {
 		curr_health -= damage;
 		if (curr_health <= 0) {
+			gameManager.RemoveEnemy();
 			Destroy (this.gameObject);
 		} else {
 			SetHealthBar (this.curr_health / this.max_health);

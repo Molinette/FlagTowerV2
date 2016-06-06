@@ -9,7 +9,8 @@ public class EnemySpawn : MonoBehaviour {
 	public float SpawnTime;
 	private Transform location;
 	private GameObject chosenEnemie;
-	private int value;
+	private int enemiesWave = 0;
+	private int enemiesSpawned = 1;
 
 	void Start () {
 		StartCoroutine (Spawn());
@@ -18,23 +19,32 @@ public class EnemySpawn : MonoBehaviour {
 	IEnumerator Spawn() {
 		while(true) {
 			spawnSetup ();
-			Instantiate (chosenEnemie, location.position, Quaternion.identity);
 			yield return new WaitForSeconds (SpawnTime);
 		}
 	}
-		
+
     void spawnSetup()
     {
-		value = Random.Range(0, enemies.Length);
-
-		if (value == 0) {
-			chosenEnemie = enemies [value];
-			location = getRandomAirPoint();
-		} 
-
-		else {
-			chosenEnemie = enemies [value];
-			location = getRandomGroundPoint();
+		if(enemiesSpawned < enemiesWave){
+			int randomNb = Random.Range(0, 20);
+			if(randomNb <= 10){
+				chosenEnemie = enemies [1];
+				location = getRandomGroundPoint();
+			}
+			else if(randomNb > 10 && randomNb <= 15){
+				chosenEnemie = enemies [2];
+				location = getRandomGroundPoint();
+			}
+			else if(randomNb > 15 && randomNb <= 17){
+				chosenEnemie = enemies [3];
+				location = getRandomGroundPoint();
+			}
+			else{
+				chosenEnemie = enemies [0];
+				location = getRandomAirPoint();
+			}
+			Instantiate (chosenEnemie, location.position, Quaternion.identity);
+			enemiesSpawned++;
 		}
     }
 
@@ -44,5 +54,10 @@ public class EnemySpawn : MonoBehaviour {
 
 	Transform getRandomAirPoint() {
 		return airSpawnPoint[Random.Range (0, airSpawnPoint.Length)];
+	}
+
+	public void StartNewWave(int enemiesWave){
+		enemiesSpawned = 0;
+		this.enemiesWave = enemiesWave;
 	}
 }

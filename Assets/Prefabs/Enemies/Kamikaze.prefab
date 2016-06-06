@@ -302,7 +302,7 @@ MonoBehaviour:
   breakingAcceleration: 16
   jumpingForce: 8
   target: {fileID: 0}
-  damage: 50
+  damage: 20
   max_health: 1
   health_bar: {fileID: 149564}
   animation: {fileID: 0}
@@ -552,7 +552,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: movingState

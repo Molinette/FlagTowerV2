@@ -54,6 +54,7 @@ public class Bomber : Enemy {
 		curr_health -= damage;
 		if (curr_health <= 0) {
 			//Creates an explosion
+			gameManager.RemoveEnemy();
 			GameObject.Instantiate(explosion,transform.position,explosion.transform.rotation);
 			Destroy(gameObject);
 		} else {

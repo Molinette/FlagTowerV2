@@ -114,6 +114,7 @@ public class Runner : Enemy {
 			if (hasFlag) {
 				DropFlag ();
 			}
+			gameManager.RemoveEnemy();
 			Destroy (this.gameObject);
 		} else {
 			SetHealthBar (this.curr_health / this.max_health);

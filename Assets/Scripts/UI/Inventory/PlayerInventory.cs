@@ -15,7 +15,7 @@ public class PlayerInventory : MonoBehaviour {
     private const int TOWERHEALTH = 8;
     private const int TOWERARMOR = 9;
 
-    private int money  = 2000;
+    private int money  = 0;
 	private float reward = 2000;
     private int[] inventory = new int[8];
 
@@ -53,7 +53,7 @@ public class PlayerInventory : MonoBehaviour {
         itemPrices[TOWERHEALTH] = ConstantInventoryValues.TOWER_HEALTH_COST;
         itemPrices[TOWERARMOR] = ConstantInventoryValues.TOWER_ARMOR_COST;
         refreshMoneyText();
-		rewardText.text = "reward: " + reward + "$";
+		refreshRewardText();
         
     }
 
@@ -182,6 +182,11 @@ public class PlayerInventory : MonoBehaviour {
         moneyText.text = "Money: " + money + "$";
     }
 
+	private void refreshRewardText()
+	{
+		rewardText.text = "Reward: " + Mathf.Floor(reward).ToString() + "$";
+	}
+
     public int getPrice(string item)
     {
         switch (item)
@@ -284,6 +289,13 @@ public class PlayerInventory : MonoBehaviour {
 
 
 		reward = Mathf.Max(reward - 200 * Time.deltaTime,0);
-		rewardText.text = Mathf.Floor(reward).ToString();
+		refreshRewardText();
+	}
+
+	public void AddWaveMoney(){
+		money = money + (int)Mathf.Floor(reward);
+		reward = 2000;
+		refreshRewardText();
+		refreshMoneyText();
 	}
 }
