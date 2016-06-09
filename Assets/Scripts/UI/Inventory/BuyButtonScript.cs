@@ -10,7 +10,7 @@ public class BuyButtonScript : Button {
     public Text ItemPriceText;
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
         playerInventory = GameObject.Find("Character").GetComponent<PlayerInventory>();
 		ItemPriceText.text = playerInventory.getPrice(item) + "$";
     }
@@ -18,7 +18,7 @@ public class BuyButtonScript : Button {
 	// Update is called once per frame
 	void Update () {
         ItemPriceText.text = playerInventory.getPrice(item) + "$";
-        if(playerInventory.getMoney() > playerInventory.getPrice(item))
+        if (playerInventory.getMoney() < playerInventory.getPrice(item))
         {
             this.interactable = false;
         }
