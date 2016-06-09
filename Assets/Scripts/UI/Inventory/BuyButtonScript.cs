@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class BuyButtonScript : MonoBehaviour {
+public class BuyButtonScript : Button {
     
     public string item;
     private PlayerInventory playerInventory;
@@ -18,5 +18,14 @@ public class BuyButtonScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         ItemPriceText.text = playerInventory.getPrice(item) + "$";
+        if(playerInventory.getMoney() > playerInventory.getPrice(item))
+        {
+            this.interactable = false;
+        }
+        else
+        {
+            this.interactable = true;
+        }
+
     }
 }

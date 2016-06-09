@@ -1,34 +1,39 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System;
 
 public class PlayerInventory : MonoBehaviour {
     private const int PISTOL = 0;
-    private const int KATANA = 1;
-    private const int RIFLE = 2;
-    private const int SHOTGUN = 3;
-    private const int RPG = 4;
-    private const int GRENADELAUNCHER = 5;
-    private const int TURRET = 6;
-    private const int MINE = 7;
-    private const int TOWERHEALTH = 8;
-    private const int TOWERARMOR = 9;
+    private const int RIFLE = 1;
+    private const int SHOTGUN = 2;
+    private const int RPG = 3;
+    private const int GRENADELAUNCHER = 4;
+    private const int TURRET = 5;
+    private const int MINE = 6;
+    private const int TOWERHEALTH = 7;
 
-    private int money  = 2000;
+    private int money  = ConstantInventoryValues.INITIAL_MONEY;
 	private float reward = 2000;
     private int[] inventory = new int[8];
-
     private int[] itemPrices = new int[10];
-
     private GameObject[] inventoryButtons;
+    private GameObject[] shopButtons;
+
+    private ButtonPlayerAction pistolButton;
+    private ButtonPlayerAction rifleButton;
+    private ButtonPlayerAction shotgunButton;
+    private ButtonPlayerAction rpgButton;
+    private ButtonPlayerAction grenadeLauncherButton;
+    private ButtonPlayerAction turretButton;
+    private ButtonPlayerAction mineButton;
 
     public Text moneyText;
 	public Text rewardText;
     public TowerDownScript tower;
 
     public Pistol pistol;
-    //public Katana katana;
     public AssaultRifle rifle;
     public Shotgun shotgun;
     public RocketLauncher rpg;
@@ -41,9 +46,6 @@ public class PlayerInventory : MonoBehaviour {
         inventoryButtons = GameObject.FindGameObjectsWithTag("InventoryButton");
         Array.Sort(inventoryButtons, CompareObNames);
 
-
-
-        itemPrices[KATANA] = ConstantInventoryValues.KATANA_INITIAL_COST;
         itemPrices[RIFLE] = ConstantInventoryValues.RIFLE_INITIAL_COST;
         itemPrices[SHOTGUN] = ConstantInventoryValues.SHOTGUN_INITIAL_COST;
         itemPrices[RPG] = ConstantInventoryValues.RPG_INITIAL_COST;
@@ -51,30 +53,89 @@ public class PlayerInventory : MonoBehaviour {
         itemPrices[TURRET] = ConstantInventoryValues.TURRET_COST;
         itemPrices[MINE] = ConstantInventoryValues.MINE_COST;
         itemPrices[TOWERHEALTH] = ConstantInventoryValues.TOWER_HEALTH_COST;
-        itemPrices[TOWERARMOR] = ConstantInventoryValues.TOWER_ARMOR_COST;
         refreshMoneyText();
 		rewardText.text = "reward: " + reward + "$";
-        
+
+        pistolButton = inventoryButtons[PISTOL].GetComponent<ButtonPlayerAction>();
+        rifleButton = inventoryButtons[RIFLE].GetComponent<ButtonPlayerAction>();
+        shotgunButton = inventoryButtons[SHOTGUN].GetComponent<ButtonPlayerAction>();
+        rpgButton = inventoryButtons[RPG].GetComponent<ButtonPlayerAction>();
+        grenadeLauncherButton = inventoryButtons[GRENADELAUNCHER].GetComponent<ButtonPlayerAction>();
+        turretButton = inventoryButtons[TURRET].GetComponent<ButtonPlayerAction>();
+        mineButton = inventoryButtons[MINE].GetComponent<ButtonPlayerAction>();
     }
 
 	public void Update(){
-		//print (reward);
-	}
+
+        if (inventory[RIFLE] == 0)
+        {
+            rifleButton.interactable = false;
+        }
+        else
+        {
+            rifleButton.interactable = true;
+        }
+
+        if (inventory[SHOTGUN] == 0)
+        {
+            shotgunButton.interactable = false;
+        }
+        else
+        {
+            shotgunButton.interactable = true;
+        }
+
+        if (inventory[RPG] == 0)
+        {
+            rpgButton.interactable = false;
+        }
+        else
+        {
+            rpgButton.interactable = true;
+        }
+
+        if (inventory[GRENADELAUNCHER] == 0)
+        {
+            grenadeLauncherButton.interactable = false;
+        }
+        else
+        {
+            grenadeLauncherButton.interactable = true;
+        }
+
+        if (inventory[TURRET] == 0)
+        {
+            turretButton.interactable = false;
+        }
+        else
+        {
+            turretButton.interactable = true;
+        }
+
+        if (inventory[MINE] == 0)
+        {
+            mineButton.interactable = false;
+        }
+        else
+        {
+            mineButton.interactable = true;
+        }
+
+        if(itemPrices[RIFLE] > money)
+        {
+
+        }
+        else
+        {
+
+        }
+
+    }
 
     public void addItem(string item)
     {
         switch (item)
         {
-            case ConstantInventoryValues.KATANA:
-                if (Pay(itemPrices[KATANA])) {
-                    if (itemPrices[KATANA] == ConstantInventoryValues.KATANA_INITIAL_COST)
-                    {
-                        inventory[KATANA] += 1;
-                        inventoryButtons[KATANA].GetComponent<ButtonPlayerAction>().RefreshText(inventory[KATANA].ToString());
-                        itemPrices[KATANA] = 0;
-                    }                    
-                }
-                break;
             case ConstantInventoryValues.ASSAULT_RIFLE:
                 if (Pay(itemPrices[RIFLE]))
                 {
@@ -84,7 +145,7 @@ public class PlayerInventory : MonoBehaviour {
                     }
                     inventory[RIFLE] += ConstantInventoryValues.RIFLE_AMMO_TO_ADD;
                     rifle.addAmmo(ConstantInventoryValues.RIFLE_AMMO_TO_ADD);
-                    inventoryButtons[RIFLE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RIFLE].ToString());
+                    rifleButton.RefreshText(inventory[RIFLE].ToString());
                 }
                 break;
             case ConstantInventoryValues.SHOTGUN:
@@ -96,7 +157,7 @@ public class PlayerInventory : MonoBehaviour {
                     }
                     inventory[SHOTGUN] += ConstantInventoryValues.SHOTGUN_AMMO_TO_ADD;
                     shotgun.addAmmo(ConstantInventoryValues.SHOTGUN_AMMO_TO_ADD);
-                    inventoryButtons[SHOTGUN].GetComponent<ButtonPlayerAction>().RefreshText(inventory[SHOTGUN].ToString());
+                    shotgunButton.RefreshText(inventory[SHOTGUN].ToString());
                 }
                 break;
             case ConstantInventoryValues.RPG:
@@ -108,7 +169,7 @@ public class PlayerInventory : MonoBehaviour {
                     }
                     inventory[RPG] += ConstantInventoryValues.RPG_AMMO_TO_ADD;
                     rpg.addAmmo(ConstantInventoryValues.RPG_AMMO_TO_ADD);
-                    inventoryButtons[RPG].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RPG].ToString());
+                    rpgButton.RefreshText(inventory[RPG].ToString());
                 }
                 break;
             case ConstantInventoryValues.GRENADE_LAUNCHER:
@@ -120,7 +181,7 @@ public class PlayerInventory : MonoBehaviour {
                     }
                     inventory[GRENADELAUNCHER] += ConstantInventoryValues.GRENADELAUNCHER_AMMO_TO_ADD;
                     grenadeLauncher.addAmmo(ConstantInventoryValues.GRENADELAUNCHER_AMMO_TO_ADD);
-                    inventoryButtons[GRENADELAUNCHER].GetComponent<ButtonPlayerAction>().RefreshText(inventory[GRENADELAUNCHER].ToString());
+                    grenadeLauncherButton.RefreshText(inventory[GRENADELAUNCHER].ToString());
                 }
                 break;
             case ConstantInventoryValues.TURRET:
@@ -128,7 +189,7 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[TURRET] += ConstantInventoryValues.TURRET_SUPPLY_TO_ADD;
                     turret.addAmmo(ConstantInventoryValues.TURRET_SUPPLY_TO_ADD);
-                    inventoryButtons[TURRET].GetComponent<ButtonPlayerAction>().RefreshText(inventory[TURRET].ToString());
+                    turretButton.RefreshText(inventory[TURRET].ToString());
                 }
                 break;
             case ConstantInventoryValues.MINE:
@@ -136,7 +197,7 @@ public class PlayerInventory : MonoBehaviour {
                 {
                     inventory[MINE] += ConstantInventoryValues.MINE_SUPPLY_TO_ADD;
                     mine.addAmmo(ConstantInventoryValues.MINE_SUPPLY_TO_ADD);
-                    inventoryButtons[MINE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[MINE].ToString());
+                    mineButton.RefreshText(inventory[MINE].ToString());
                 }
                 break;
             case ConstantInventoryValues.TOWER_HEALTH:
@@ -145,13 +206,7 @@ public class PlayerInventory : MonoBehaviour {
                     tower.changeHealth(20);
                 }
                 break;
-            case ConstantInventoryValues.TOWER_ARMOR:
-                if (Pay(itemPrices[TOWERARMOR]))
-                {
-                    //Temporairement un moyen de rapidement endommager la tour
-                    tower.changeHealth(-20);
-                }
-                break;
+            
             default:
                 break;
         }
@@ -186,8 +241,6 @@ public class PlayerInventory : MonoBehaviour {
     {
         switch (item)
         {
-            case "Katana":
-                return itemPrices[KATANA];
             case "Rifle":
                 return itemPrices[RIFLE];
             case "Shotgun":
@@ -202,8 +255,6 @@ public class PlayerInventory : MonoBehaviour {
                 return itemPrices[MINE];
             case "TowerHealth":
                 return itemPrices[TOWERHEALTH];
-            case "TowerArmor":
-                return itemPrices[TOWERARMOR];
             default:
                 return 0;
         }
@@ -215,38 +266,32 @@ public class PlayerInventory : MonoBehaviour {
         {
             case "Pistol":
                 break;
-            case "Katana":
-                if(inventory[KATANA] > 0)
-                {
-                    
-                }
-                break;
             case "Rifle":
                 if (inventory[RIFLE] > 0)
                 {
                     inventory[RIFLE] = inventory[RIFLE] - 1;
-                    inventoryButtons[RIFLE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RIFLE].ToString());
+                    rifleButton.RefreshText(inventory[RIFLE].ToString());
                 }
                 break;
             case "Shotgun":
                 if (inventory[SHOTGUN] > 0)
                 {
                     inventory[SHOTGUN] = inventory[SHOTGUN] - 1;
-                    inventoryButtons[SHOTGUN].GetComponent<ButtonPlayerAction>().RefreshText(inventory[SHOTGUN].ToString());
+                    shotgunButton.GetComponent<ButtonPlayerAction>().RefreshText(inventory[SHOTGUN].ToString());
                 }
                 break;
             case "RPG":
                 if (inventory[RPG] > 0)
                 {
                     inventory[RPG] = inventory[RPG] - 1;
-                    inventoryButtons[RPG].GetComponent<ButtonPlayerAction>().RefreshText(inventory[RPG].ToString());
+                    rpgButton.RefreshText(inventory[RPG].ToString());
                 }
                 break;
             case "GrenadeLauncher":
                 if (inventory[GRENADELAUNCHER] > 0)
                 {
                     inventory[GRENADELAUNCHER] = inventory[GRENADELAUNCHER] - 1;
-                    inventoryButtons[GRENADELAUNCHER].GetComponent<ButtonPlayerAction>().RefreshText(inventory[GRENADELAUNCHER].ToString());
+                    grenadeLauncherButton.RefreshText(inventory[GRENADELAUNCHER].ToString());
                 }
                 
                 break;
@@ -254,14 +299,14 @@ public class PlayerInventory : MonoBehaviour {
                 if (inventory[TURRET] > 0)
                 {
                     inventory[TURRET] = inventory[TURRET] - 1;
-                    inventoryButtons[TURRET].GetComponent<ButtonPlayerAction>().RefreshText(inventory[TURRET].ToString());
+                    turretButton.RefreshText(inventory[TURRET].ToString());
                 }
                 break;
             case "Mine":
                 if (inventory[MINE] > 0)
                 {
                     inventory[MINE] = inventory[MINE] - 1;
-                    inventoryButtons[MINE].GetComponent<ButtonPlayerAction>().RefreshText(inventory[MINE].ToString());
+                    mineButton.RefreshText(inventory[MINE].ToString());
                 }
                 break;
             default:
