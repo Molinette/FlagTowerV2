@@ -249,7 +249,7 @@ MonoBehaviour:
   health_bar: {fileID: 125118}
   animation: {fileID: 0}
   ObjectsToDrop:
-  - {fileID: 111034, guid: 16081b9bad4ca5f4db2e368ca3eafb1c, type: 2}
+  - {fileID: 168816, guid: 356992ace92e1c545acdcedb51b9a6ab, type: 2}
   - {fileID: 194622, guid: d2b8c2432437617448b4de28b2ca1775, type: 2}
   Targets:
   - {fileID: 413380, guid: 59a8a87dcbf4609458ff06319b1a06bd, type: 2}
@@ -478,7 +478,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ObjectsToDrop.Array.data[0]
       value: 
-      objectReference: {fileID: 111034, guid: 16081b9bad4ca5f4db2e368ca3eafb1c, type: 2}
+      objectReference: {fileID: 168816, guid: 356992ace92e1c545acdcedb51b9a6ab, type: 2}
     - target: {fileID: 0}
       propertyPath: ObjectsToDrop.Array.data[1]
       value: 
