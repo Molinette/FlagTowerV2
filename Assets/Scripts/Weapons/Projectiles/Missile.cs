@@ -12,8 +12,17 @@ public class Missile : Explosive {
 	private GameObject rocketLauncher;
 	protected Vector2 direction;
 	protected Vector3 mousePosition;
+    private AudioScript audioScript;
+    private GameObject audioGame;
 
-	void Update(){
+    void Start()
+    {
+
+        audioGame = GameObject.Find("Audio");
+        audioScript = audioGame.GetComponent<AudioScript>();
+    }
+
+    void Update(){
 
 		if (Input.GetMouseButtonDown (1) && isHoming) {
 			//Get direction to cursor
@@ -48,7 +57,7 @@ public class Missile : Explosive {
 
 	void Explode(){
 
-        PlayDestroyedSound();
+        audioScript.PlayExplosionSound();
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,explosionRadius);
 		foreach(Collider2D collider in colliders){
 			/*Rigidbody2D colliderRb = collider.gameObject.GetComponent<Rigidbody2D>();

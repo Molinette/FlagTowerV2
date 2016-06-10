@@ -8,13 +8,18 @@ public class GrenadePrototype : MonoBehaviour {
 	public float explosionRadius;
 	public GameObject explosionPrefab;
     private AudioSource source;
-    public AudioClip grenadeSound;
+    public AudioClip bouncingSound;
+    private int groundLayer;
+    private AudioScript audioScript;
+    private GameObject audioGame;
 
     // Use this for initialization
     void Start () {
 
         source = GetComponent<AudioSource>();
-
+        groundLayer = LayerMask.NameToLayer("Ground");
+        audioGame = GameObject.Find("Audio");
+        audioScript = audioGame.GetComponent<AudioScript>();
     }
 	
 	// Update is called once per frame
@@ -22,17 +27,29 @@ public class GrenadePrototype : MonoBehaviour {
 
 		timer -= Time.deltaTime;
 		if(timer <= 0){
-			Explode();
-			GameObject.Instantiate(explosionPrefab,transform.position,Quaternion.Euler(explosionPrefab.transform.eulerAngles));
-			Destroy(gameObject);
-		}
+           
+            Explode();
+            GameObject.Instantiate(explosionPrefab,transform.position,Quaternion.Euler(explosionPrefab.transform.eulerAngles));
+            Destroy(gameObject);
+
+
+        }
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.layer == groundLayer)
+            source.PlayOneShot(bouncingSound, 1F);
+
+
+
+    }
 
 	void Explode(){
 
-        PlayGrenadeSound();
+        audioScript.PlayExplosionSound();
 
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,explosionRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,explosionRadius);
 		foreach(Collider2D collider in colliders){
 			/*Rigidbody2D colliderRb = collider.gameObject.GetComponent<Rigidbody2D>();
 			if(colliderRb != null){
@@ -47,10 +64,13 @@ public class GrenadePrototype : MonoBehaviour {
 		}
 	}
 
-    public void PlayGrenadeSound()
-    {
 
-        source.PlayOneShot(grenadeSound, 1F);
 
-    }
+   
+        
+        
+     
+
+
+    
 }

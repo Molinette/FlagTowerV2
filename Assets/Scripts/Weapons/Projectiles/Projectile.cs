@@ -17,11 +17,7 @@ public abstract class Projectile : MonoBehaviour {
 		return damage;
 	}
 
-    public void PlayDestroyedSound()    {
-
-        source.PlayOneShot(projectileSound, 1F);
-
-    }
+    
 
 
 }

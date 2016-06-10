@@ -13,7 +13,7 @@ GameObject:
   - 60: {fileID: 6060132}
   - 114: {fileID: 11490626}
   - 82: {fileID: 8299704}
-  m_Layer: 15
+  m_Layer: 19
   m_Name: GrenadePrototype
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ MonoBehaviour:
   explosionForce: 15
   explosionRadius: 5
   explosionPrefab: {fileID: 101690, guid: 08d2ea6130bdf16488607e34c797bd30, type: 2}
-  grenadeSound: {fileID: 8300000, guid: fb434a88d28bd154f88d33995f9bafe1, type: 3}
+  bouncingSound: {fileID: 8300000, guid: c1b306856c4718944b92c069ff0c09c2, type: 3}
 --- !u!212 &21239142
 SpriteRenderer:
   m_ObjectHideFlags: 1
