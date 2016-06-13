@@ -19,7 +19,6 @@ public class PlayerInventory : MonoBehaviour {
     private int[] inventory = new int[8];
     private int[] itemPrices = new int[10];
     private GameObject[] inventoryButtons;
-    private GameObject[] shopButtons;
 
     private ButtonPlayerAction pistolButton;
     private ButtonPlayerAction rifleButton;
@@ -119,15 +118,6 @@ public class PlayerInventory : MonoBehaviour {
         else
         {
             mineButton.interactable = true;
-        }
-
-        if(itemPrices[RIFLE] > money)
-        {
-
-        }
-        else
-        {
-
         }
 
     }
