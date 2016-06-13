@@ -2904,6 +2904,7 @@ RectTransform:
   - {fileID: 1963417180}
   - {fileID: 2006844788}
   - {fileID: 1817266643}
+  - {fileID: 1062667305}
   m_Father: {fileID: 659602066}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
@@ -3295,6 +3296,84 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1003885200}
+--- !u!1 &1062667304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 161112, guid: e5a5ef9e59a204547a015e10e81e1a6d, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1062667305}
+  - 222: {fileID: 1062667307}
+  - 114: {fileID: 1062667306}
+  m_Layer: 5
+  m_Name: Wave Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1062667305
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22494822, guid: e5a5ef9e59a204547a015e10e81e1a6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062667304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 873774152}
+  m_RootOrder: 7
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -35.999954}
+  m_SizeDelta: {x: 107.9, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1062667306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11478930, guid: e5a5ef9e59a204547a015e10e81e1a6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062667304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.11764707, g: 0.14117648, b: 0.18431373, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: dbed5389422fc71409928ceaa16bfd8e, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 1
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Wave
+
+    1'
+--- !u!222 &1062667307
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22293512, guid: e5a5ef9e59a204547a015e10e81e1a6d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062667304}
 --- !u!1 &1085444924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3838,7 +3917,7 @@ GameObject:
   - 222: {fileID: 1446156812}
   - 114: {fileID: 2107767305}
   m_Layer: 5
-  m_Name: Hostiles Text
+  m_Name: Ennemies Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4727,10 +4806,6 @@ Prefab:
       propertyPath: tower
       value: 
       objectReference: {fileID: 674131428}
-    - target: {fileID: 11456024, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
-      propertyPath: freezeDuration
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0377607cbc41b9418f727033eb2071c, type: 2}
   m_IsPrefabParent: 0
@@ -4742,6 +4817,12 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 123046, guid: 26093223a900f2a4d8b8d8bf8612eecd, type: 2}
   m_PrefabInternal: {fileID: 930034104}
+--- !u!114 &1936904454 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11429658, guid: 26093223a900f2a4d8b8d8bf8612eecd,
+    type: 2}
+  m_PrefabInternal: {fileID: 930034104}
+  m_Script: {fileID: 11500000, guid: 2af79ab1883de6045afe751422421fe8, type: 3}
 --- !u!114 &1936904456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4884,7 +4965,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3fe25b0ebf9755549b5a5bdbaf883f9a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 826bfdc572a587d48822ebd66959f6f7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.18
   m_Pitch: 1
@@ -4960,6 +5041,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ac388d214efa646afe13533a935503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopTime: 10
+  enemySpawn: {fileID: 1936904454}
+  playerInventory: {fileID: 564926849}
+  enemiesText: {fileID: 2107767305}
+  waveText: {fileID: 1062667306}
+  shopButton: {fileID: 1397517527}
 --- !u!1001 &1953938077
 Prefab:
   m_ObjectHideFlags: 0

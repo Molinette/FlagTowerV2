@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	public EnemySpawn enemySpawn;
 	public PlayerInventory playerInventory;
 	public Text enemiesText;
+	public Text waveText;
 	public Button shopButton;
 
 	// Use this for initialization
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour {
 
 	public void EndWave(){
 		waveCount++;
+		refreshWaveText();
 		enemiesWave += 5;
 		isDuringWave = false;
 		nextTime = Time.time + shopTime;
@@ -80,5 +82,10 @@ public class GameManager : MonoBehaviour {
 	private void refreshEnemiesText()
 	{
 		enemiesText.text = "Enemies left: " + enemiesLeft;
+	}
+
+	private void refreshWaveText()
+	{
+		waveText.text = "Wave " + waveCount;
 	}
 }

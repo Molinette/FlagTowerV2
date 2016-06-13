@@ -16,7 +16,7 @@ public class PlayerInventory : MonoBehaviour {
     private const int TOWERARMOR = 9;
 
     private int money  = 0;
-	private float reward = 2000;
+	private float reward = 3000;
     private int[] inventory = new int[8];
 
     private int[] itemPrices = new int[10];
@@ -294,7 +294,7 @@ public class PlayerInventory : MonoBehaviour {
 
 	public void AddWaveMoney(){
 		money = money + (int)Mathf.Floor(reward);
-		reward = 2000;
+		reward = 3000;
 		refreshRewardText();
 		refreshMoneyText();
 	}
