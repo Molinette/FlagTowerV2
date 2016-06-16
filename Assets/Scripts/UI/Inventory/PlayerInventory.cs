@@ -15,13 +15,16 @@ public class PlayerInventory : MonoBehaviour {
     private const int TOWERHEALTH = 8;
     private const int TOWERARMOR = 9;
 
-    private int money  = 0;
+	private int money;
+	public int startingMoney = 0;
+	public float startingReward = 3000;
 	private float reward = 3000;
     private int[] inventory = new int[8];
 
     private int[] itemPrices = new int[10];
 
     private GameObject[] inventoryButtons;
+
 
     public Text moneyText;
 	public Text rewardText;
@@ -35,9 +38,11 @@ public class PlayerInventory : MonoBehaviour {
     public GrenadeLauncher grenadeLauncher;
     public Placeable turret;
     public Placeable mine;
+	public FlagReset flagScript;
 
     public void Start()
     {
+		money = startingMoney;
         inventoryButtons = GameObject.FindGameObjectsWithTag("InventoryButton");
         Array.Sort(inventoryButtons, CompareObNames);
 
@@ -143,6 +148,7 @@ public class PlayerInventory : MonoBehaviour {
                 if (Pay(itemPrices[TOWERHEALTH]))
                 {
                     tower.changeHealth(20);
+					flagScript.ResetFlag();
                 }
                 break;
             case ConstantInventoryValues.TOWER_ARMOR:

@@ -28,12 +28,18 @@ public class FlagReset : MonoBehaviour {
 
 	void Update () {
 
-		ResetFlag ();
 		IsItIdle ();
 		if(isTaken) {
 			
 			playerInventory.Penalize ();
 
+		}
+		if (!GetTaken() && idle && !atSpawn) {
+			spawnTimer -= Time.deltaTime;
+
+			if (spawnTimer <= 0) {
+				ResetFlag();
+			}
 		}
 	}
 
@@ -63,15 +69,8 @@ public class FlagReset : MonoBehaviour {
 	}
 
 	public void ResetFlag(){
-
-		if (!GetTaken() && idle && !atSpawn) {
-			spawnTimer -= Time.deltaTime;
-
-			if (spawnTimer <= 0) {
-				gameObject.transform.position = startingPosition;
-				atSpawn = true;
-				spawnTimer = resetSpawnTimer;
-			}
-		}
+			gameObject.transform.position = startingPosition;
+			atSpawn = true;
+			spawnTimer = resetSpawnTimer;
 	}
 }

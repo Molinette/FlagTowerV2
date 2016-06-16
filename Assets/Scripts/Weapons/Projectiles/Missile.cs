@@ -13,7 +13,12 @@ public class Missile : Explosive {
 	protected Vector2 direction;
 	protected Vector3 mousePosition;
 
-	void Update(){
+    void Start()
+    {
+
+    }
+
+    void Update(){
 
 		if (Input.GetMouseButtonDown (1) && isHoming) {
 			//Get direction to cursor

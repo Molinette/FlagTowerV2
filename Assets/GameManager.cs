@@ -4,17 +4,20 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public float shopTime = 10;
+	private float timeLeft;
 	private float nextTime;
 
 	private bool isDuringWave = true;
 	private int waveCount = 1;
 	private int enemiesLeft;
-	private int enemiesWave = 5;
+	public int enemiesWave = 5;
 	public EnemySpawn enemySpawn;
 	public PlayerInventory playerInventory;
 	public Text enemiesText;
 	public Text waveText;
+	public Text timerText;
 	public Button shopButton;
+	public GameObject shopMenu;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +30,11 @@ public class GameManager : MonoBehaviour {
 		if(Time.time >= nextTime && !isDuringWave){
 			StartWave();
 		}
+		if(isDuringWave == false){
+			timeLeft = Mathf.Max(0,timeLeft - 1*Time.deltaTime);
+			refreshTimerText();
+		}
+
 	}
 
 	public void AddWave(){
@@ -56,11 +64,15 @@ public class GameManager : MonoBehaviour {
 	public void EndWave(){
 		waveCount++;
 		refreshWaveText();
-		enemiesWave += 5;
+		enemiesWave += enemiesWave;
 		isDuringWave = false;
 		nextTime = Time.time + shopTime;
 		playerInventory.AddWaveMoney();
 		shopButton.interactable = true;
+		timerText.gameObject.SetActive(true);
+		waveText.gameObject.SetActive(false);
+		timeLeft = shopTime;
+		refreshTimerText();
 	}
 
 	public void StartWave(){
@@ -69,6 +81,9 @@ public class GameManager : MonoBehaviour {
 		isDuringWave = true;
 		enemySpawn.StartNewWave(enemiesWave);
 		shopButton.interactable = false;
+		timerText.gameObject.SetActive(false);
+		waveText.gameObject.SetActive(true);
+		shopMenu.SetActive(false);
 	}
 
 	public void RemoveEnemy(){
@@ -79,6 +94,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public void AddEnemy(){
+		enemiesLeft++;
+		refreshEnemiesText();
+	}
+
 	private void refreshEnemiesText()
 	{
 		enemiesText.text = "Enemies left: " + enemiesLeft;
@@ -87,5 +107,10 @@ public class GameManager : MonoBehaviour {
 	private void refreshWaveText()
 	{
 		waveText.text = "Wave " + waveCount;
+	}
+
+	private void refreshTimerText()
+	{
+		timerText.text = "Next wave \n " + Mathf.Floor(timeLeft);
 	}
 }

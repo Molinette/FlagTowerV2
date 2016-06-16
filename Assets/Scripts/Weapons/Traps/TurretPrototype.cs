@@ -2,12 +2,14 @@
 using System.Collections;
 
 public class TurretPrototype : MonoBehaviour {
-
+	public float timer = 10;
 	public float damage;
     public float bulletSpeed;
     public float firingDelay;
     public Transform firingPosition;
     public GameObject bullet;
+	private AudioSource source;
+	public AudioClip weaponSound;
     GameObject bulletInstance;
     Vector2 shootingDirection;
     Transform target;
@@ -16,6 +18,7 @@ public class TurretPrototype : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+		source = GetComponent<AudioSource>();
         fireTime = Time.time + firingDelay;
         if (transform.position.x < 1)
         {
@@ -36,9 +39,18 @@ public class TurretPrototype : MonoBehaviour {
             bulletInstance = (GameObject)Instantiate(bullet, firingPosition.position, firingPosition.rotation);
             bulletInstance.GetComponent<Rigidbody2D>().velocity = (shootingDirection.normalized * bulletSpeed);
 			bulletInstance.GetComponent<Bullet>().SetDamage(damage);
+			source.PlayOneShot(weaponSound, 1F);
             fireTime = Time.time + firingDelay;
         }
 
+		timer -= Time.deltaTime;
+		if(timer <= 0){
+
+			//Explode();
+			//GameObject.Instantiate(explosionPrefab,transform.position,Quaternion.Euler(explosionPrefab.transform.eulerAngles));
+			Destroy(gameObject);
+
+		}
        
     }
 }

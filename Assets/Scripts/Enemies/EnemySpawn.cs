@@ -7,6 +7,7 @@ public class EnemySpawn : MonoBehaviour {
 	public Transform [] airSpawnPoint;
 	public GameObject [] enemies;
 	public float SpawnTime;
+	public float spawnTimeDecrease = 1;
 	private Transform location;
 	private GameObject chosenEnemie;
 	private int enemiesWave = 0;
@@ -59,5 +60,6 @@ public class EnemySpawn : MonoBehaviour {
 	public void StartNewWave(int enemiesWave){
 		enemiesSpawned = 0;
 		this.enemiesWave = enemiesWave;
+		SpawnTime = Mathf.Max(1,SpawnTime - spawnTimeDecrease);
 	}
 }

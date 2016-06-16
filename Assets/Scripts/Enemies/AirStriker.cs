@@ -10,8 +10,11 @@ public class AirStriker : Enemy {
 	public float SpawnTime = 3f;
 	private int targetDirection;
 
+	private bool hasAppeared;
+
 	public override void Start () {
 		base.Start ();
+		hasAppeared = false;
 		targetDirection = GetTargetDirection();
 		base.target = Targets [targetDirection];
 		StartCoroutine (Drop());
@@ -32,6 +35,18 @@ public class AirStriker : Enemy {
 
 	}
 
+	public void Update(){
+		if (transform.Find("BodySprite").GetComponent<Renderer>().isVisible) {
+			hasAppeared = true;
+		}
+		if (hasAppeared) {
+			if (!transform.Find("BodySprite").GetComponent<Renderer>().isVisible){
+				gameManager.RemoveEnemy();
+				Destroy (gameObject);
+			}
+		}
+	}
+
 	IEnumerator Drop () {
 		while (true) {
 			Instantiate (ObjectsToDrop[GetObjectToSpawn()], transform.FindChild ("DropAnchor").position, Quaternion.identity);
@@ -48,7 +63,8 @@ public class AirStriker : Enemy {
 	}
 
 	public int GetObjectToSpawn(){
-		if(Random.Range(0,11) < 2){
+		if(Random.Range(0,11) < 3){
+			gameManager.AddEnemy();
 			return 1;
 		}
 		else{

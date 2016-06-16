@@ -2,9 +2,15 @@
 using System.Collections;
 
 public class Explosion : MonoBehaviour {
-	
+	private AudioSource source;
+	public AudioClip explosionSound;
+
+	void Start(){
+		source = GetComponent<AudioSource>();
+	}
 	// Update is called once per frame
 	void Update () {
-		Destroy(gameObject,2f);
+		source.PlayOneShot(explosionSound, 1F);
+		Destroy(gameObject,5f);
 	}
 }

@@ -13,17 +13,18 @@ public class MenuScript : MonoBehaviour {
 	public int score = 0;
 	public int highScore = 0;
 	string highScoreKey = "HighScore";
+   
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
 		highScore = PlayerPrefs.GetInt(highScoreKey,0);
 		quitMenu.SetActive(false);
-	}
-	 
+      
+    }
 
 	void Update(){
 		

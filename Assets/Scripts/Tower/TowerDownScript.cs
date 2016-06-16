@@ -20,6 +20,8 @@ public class TowerDownScript : MonoBehaviour {
     //Starting Y value
     private float startingPosY;
 
+	public GameObject health_bar;
+
 	private GameObject stepInstance;
 
     void Start(){
@@ -42,6 +44,7 @@ public class TowerDownScript : MonoBehaviour {
 		
     //Increment or decrement health depending on the health passed by parameter
     public void changeHealth(float healthAmount){
+
         float tempCurrentStep;
         float currentHeight;
 
@@ -54,6 +57,7 @@ public class TowerDownScript : MonoBehaviour {
             currentHeight = stepToHeight(currentStep) - stepToHeight(totalSteps);
             transform.position = new Vector3(transform.position.x, currentHeight + startingPosY,transform.position.z);
         }
+		SetHealthBar (health / maxhealth);
     }
 
     //Get height from step based on steps height
@@ -73,5 +77,11 @@ public class TowerDownScript : MonoBehaviour {
         this.currentStep = currentStep;
 
     }
+
+	public void SetHealthBar(float enemyHealth) {
+		health_bar.transform.localScale = new Vector3 (enemyHealth, health_bar.transform.localScale.y ,
+			health_bar.transform.localScale.z);
+		print(enemyHealth);
+	}
 
 }
