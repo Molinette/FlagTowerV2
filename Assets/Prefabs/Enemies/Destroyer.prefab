@@ -167,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.338665, y: 0.677032, z: 5}
+  m_LocalPosition: {x: 11.860519, y: -0.13148397, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 411428}
@@ -326,6 +326,7 @@ MonoBehaviour:
   damage: 5
   max_health: 100
   health_bar: {fileID: 149564}
+  bloodPrefab: {fileID: 125466, guid: 30f87ba7f081ae7489c6627911d58240, type: 2}
   animation: {fileID: 0}
   attackDelay: 4
 --- !u!114 &11440908

@@ -114,6 +114,7 @@ public class Runner : Enemy {
 			if (hasFlag) {
 				DropFlag ();
 			}
+			GameObject.Instantiate(bloodPrefab,transform.position,Quaternion.Euler(bloodPrefab.transform.eulerAngles));
 			gameManager.RemoveEnemy();
 			Destroy (this.gameObject);
 		} else {

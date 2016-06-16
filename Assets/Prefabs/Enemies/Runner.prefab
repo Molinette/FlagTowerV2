@@ -376,6 +376,7 @@ MonoBehaviour:
   damage: 0
   max_health: 20
   health_bar: {fileID: 107938}
+  bloodPrefab: {fileID: 110532, guid: 2e4997090710e8447a9be1e51d4d8797, type: 2}
   animation: {fileID: 0}
   flagHoldingPos: {fileID: 418482}
 --- !u!114 &11428146
@@ -617,6 +618,10 @@ Prefab:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 110532, guid: 2e4997090710e8447a9be1e51d4d8797, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194622}

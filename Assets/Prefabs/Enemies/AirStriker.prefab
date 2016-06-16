@@ -138,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.156158, y: 9.8813095, z: 5}
+  m_LocalPosition: {x: 11.662014, y: -0.5568516, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 427464}
@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 408108}
@@ -178,7 +178,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 134930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22466298}
@@ -247,6 +247,7 @@ MonoBehaviour:
   damage: 0
   max_health: 20
   health_bar: {fileID: 125118}
+  bloodPrefab: {fileID: 0}
   animation: {fileID: 0}
   ObjectsToDrop:
   - {fileID: 168816, guid: 356992ace92e1c545acdcedb51b9a6ab, type: 2}
@@ -373,7 +374,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc3180137a3373147a4d22006b7393ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55620605f7c5b894eb9c78f682732c7a, type: 3}
   m_Color: {r: 0.90588236, g: 0.29803923, b: 0.23529412, a: 1}
   m_FlipX: 0
   m_FlipY: 0

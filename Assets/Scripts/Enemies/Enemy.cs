@@ -7,6 +7,7 @@ public class Enemy : EnemyBehaviour {
 	public float max_health;
 	protected float curr_health;
 	public GameObject health_bar;
+	public GameObject bloodPrefab;
 	protected GameManager gameManager;
 
 	//Target to follow
@@ -26,6 +27,7 @@ public class Enemy : EnemyBehaviour {
 		curr_health -= damage;
 		if (curr_health <= 0) {
 			gameManager.RemoveEnemy();
+			GameObject.Instantiate(bloodPrefab,transform.position,Quaternion.Euler(bloodPrefab.transform.eulerAngles));
 			Destroy (this.gameObject);
 		} else {
 			SetHealthBar (this.curr_health / this.max_health);
