@@ -38,12 +38,6 @@ public class WeaponSwitching : MonoBehaviour {
         pistol.SetActive(true);
     }
 
-    public void useKatana()
-    {
-        resetWeapons();
-        //Missing Katana
-    }
-
     public void useAssaultRifle()
     {
         resetWeapons();

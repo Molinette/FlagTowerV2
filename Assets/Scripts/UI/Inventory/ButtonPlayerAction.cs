@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ButtonPlayerAction : MonoBehaviour {
+public class ButtonPlayerAction : Button {
 
     private string item;
     private int numItems;
