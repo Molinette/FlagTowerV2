@@ -15,16 +15,16 @@ public static class ConstantInventoryValues {
     public const int INITIAL_MONEY = 10000;
 
     public const int RIFLE_INITIAL_COST = 1000;
-    public const int SHOTGUN_INITIAL_COST = 2000;
+    public const int SHOTGUN_INITIAL_COST = 1500;
     public const int RPG_INITIAL_COST = 3000;
     public const int GRENADELAUNCHER_INITIAL_COST = 2000;
 
-    public const int RIFLE_AMMO_COST = 200;
-    public const int SHOTGUN_AMMO_COST = 150;
-    public const int RPG_AMMO_COST = 300;
-    public const int GRENADELAUNCHER_AMMO_COST = 300;
+    public const int RIFLE_AMMO_COST = 300;
+    public const int SHOTGUN_AMMO_COST = 400;
+    public const int RPG_AMMO_COST = 750;
+    public const int GRENADELAUNCHER_AMMO_COST = 500;
 
-    public const int RIFLE_AMMO_TO_ADD = 50;
+    public const int RIFLE_AMMO_TO_ADD = 25;
     public const int SHOTGUN_AMMO_TO_ADD = 10;
     public const int RPG_AMMO_TO_ADD = 5;
     public const int GRENADELAUNCHER_AMMO_TO_ADD = 10;
