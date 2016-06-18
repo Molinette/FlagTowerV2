@@ -88,33 +88,33 @@ public class WeaponSwitching : MonoBehaviour {
 			pistol.SetActive (true);
 		}
 
-		else if (Input.GetKeyDown ("3")) {
+		else if (Input.GetKeyDown ("2")) {
 			resetWeapons();
 			assaultRifle.SetActive (true);
 		}
 
-		else if (Input.GetKeyDown ("4")) {
+		else if (Input.GetKeyDown ("3")) {
 			resetWeapons();
 			shotgun.SetActive (true);
 		}
 
-        else if (Input.GetKeyDown("5"))
+        else if (Input.GetKeyDown("4"))
         {
             resetWeapons();
             rocketLauncher.SetActive(true);
         }
 
-        else if (Input.GetKeyDown ("6")) {
+        else if (Input.GetKeyDown ("5")) {
 			resetWeapons();
 			grenadeLauncher.SetActive (true);
 		}
 
-		else if (Input.GetKeyDown ("7")) {
+		else if (Input.GetKeyDown ("6")) {
 			resetWeapons();
 			mine.SetActive (true);
 		}
 
-		else if (Input.GetKeyDown ("8")) {
+		else if (Input.GetKeyDown ("7")) {
 			resetWeapons();
 			turret.SetActive (true);
 		}

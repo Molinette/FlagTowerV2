@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Start.unity
   - enabled: 0
     path: Assets/Scenes/Scene Principale.unity
@@ -13,3 +13,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene Principale Molinette.unity
   - enabled: 0
     path: Assets/Scenes/Scene_Fonctionnelle_A_Dupliquer_Molinette.unity
+  - enabled: 1
+    path: Assets/Scenes/Start balance.unity
+  - enabled: 1
+    path: Assets/Scenes/vrai scene 222.unity

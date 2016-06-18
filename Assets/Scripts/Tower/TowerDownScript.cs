@@ -81,7 +81,6 @@ public class TowerDownScript : MonoBehaviour {
 	public void SetHealthBar(float enemyHealth) {
 		health_bar.transform.localScale = new Vector3 (enemyHealth, health_bar.transform.localScale.y ,
 			health_bar.transform.localScale.z);
-		print(enemyHealth);
 	}
 
 }

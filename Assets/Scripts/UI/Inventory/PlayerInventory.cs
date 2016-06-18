@@ -41,7 +41,6 @@ public class PlayerInventory : MonoBehaviour {
     public GrenadeLauncher grenadeLauncher;
     public Placeable turret;
     public Placeable mine;
-	public FlagReset flagScript;
 
     public void Start()
     {
@@ -198,7 +197,6 @@ public class PlayerInventory : MonoBehaviour {
                 if (Pay(itemPrices[TOWERHEALTH]))
                 {
                     tower.changeHealth(20);
-					flagScript.ResetFlag();
                 }
                 break;
             
@@ -229,12 +227,12 @@ public class PlayerInventory : MonoBehaviour {
 
     private void refreshMoneyText()
     {
-        moneyText.text = "Money: " + money + "$";
+        moneyText.text = "" + money + "$";
     }
 
 	private void refreshRewardText()
 	{
-		rewardText.text = "Reward: " + Mathf.Floor(reward).ToString() + "$";
+		rewardText.text = "" + Mathf.Floor(reward).ToString() + "$";
 	}
 
     public int getPrice(string item)

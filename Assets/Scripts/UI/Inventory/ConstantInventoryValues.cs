@@ -24,7 +24,7 @@ public static class ConstantInventoryValues {
     public const int RPG_AMMO_COST = 750;
     public const int GRENADELAUNCHER_AMMO_COST = 500;
 
-    public const int RIFLE_AMMO_TO_ADD = 25;
+    public const int RIFLE_AMMO_TO_ADD = 50;
     public const int SHOTGUN_AMMO_TO_ADD = 10;
     public const int RPG_AMMO_TO_ADD = 5;
     public const int GRENADELAUNCHER_AMMO_TO_ADD = 10;

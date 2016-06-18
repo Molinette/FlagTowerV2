@@ -56,6 +56,7 @@ public class Bomber : Enemy {
 			//Creates an explosion
 			gameManager.RemoveEnemy();
 			GameObject.Instantiate(explosion,transform.position,explosion.transform.rotation);
+			GameObject.Instantiate(bloodPrefab,transform.position,Quaternion.Euler(bloodPrefab.transform.eulerAngles));
 			Destroy(gameObject);
 		} else {
 			SetHealthBar (this.curr_health / this.max_health);

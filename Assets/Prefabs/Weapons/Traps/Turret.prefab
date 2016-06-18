@@ -84,9 +84,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.583
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -164,7 +164,7 @@ MonoBehaviour:
   firingDelay: 2
   firingPosition: {fileID: 476068}
   bullet: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
-  weaponSound: {fileID: 8300000, guid: acf8c747d2861d54e947cc33de957a4f, type: 3}
+  weaponSound: {fileID: 8300000, guid: 549c1462d1fb1de4c96f3676b2a862f5, type: 3}
 --- !u!212 &21295668
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -217,7 +217,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: weaponSound
       value: 
-      objectReference: {fileID: 8300000, guid: acf8c747d2861d54e947cc33de957a4f, type: 3}
+      objectReference: {fileID: 8300000, guid: 549c1462d1fb1de4c96f3676b2a862f5, type: 3}
     - target: {fileID: 0}
       propertyPath: panLevelCustomCurve.m_RotationOrder
       value: 0
@@ -229,6 +229,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: 0.583
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

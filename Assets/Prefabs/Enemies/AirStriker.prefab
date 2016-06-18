@@ -247,8 +247,7 @@ MonoBehaviour:
   damage: 0
   max_health: 20
   health_bar: {fileID: 125118}
-  bloodPrefab: {fileID: 0}
-  animation: {fileID: 0}
+  bloodPrefab: {fileID: 124954, guid: 62fa5514b253b2f458b7c6b820739648, type: 2}
   ObjectsToDrop:
   - {fileID: 168816, guid: 356992ace92e1c545acdcedb51b9a6ab, type: 2}
   - {fileID: 194622, guid: d2b8c2432437617448b4de28b2ca1775, type: 2}
@@ -552,6 +551,10 @@ Prefab:
       propertyPath: SpawnTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 124954, guid: 62fa5514b253b2f458b7c6b820739648, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139516}

@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour {
 	public Text timerText;
 	public Button shopButton;
 	public GameObject shopMenu;
+	public GameObject flag;
+	public GameObject tower;
+	public GameObject character;
 
 	// Use this for initialization
 	void Start () {
@@ -73,6 +76,8 @@ public class GameManager : MonoBehaviour {
 		waveText.gameObject.SetActive(false);
 		timeLeft = shopTime;
 		refreshTimerText();
+		character.transform.parent = tower.transform;
+		flag.transform.parent = tower.transform;
 	}
 
 	public void StartWave(){
@@ -84,6 +89,8 @@ public class GameManager : MonoBehaviour {
 		timerText.gameObject.SetActive(false);
 		waveText.gameObject.SetActive(true);
 		shopMenu.SetActive(false);
+		character.transform.parent = null;
+		flag.transform.parent = null;
 	}
 
 	public void RemoveEnemy(){
@@ -101,7 +108,7 @@ public class GameManager : MonoBehaviour {
 
 	private void refreshEnemiesText()
 	{
-		enemiesText.text = "Enemies left: " + enemiesLeft;
+		enemiesText.text = "" + enemiesLeft;
 	}
 
 	private void refreshWaveText()

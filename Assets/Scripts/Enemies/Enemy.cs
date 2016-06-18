@@ -11,7 +11,7 @@ public class Enemy : EnemyBehaviour {
 	protected GameManager gameManager;
 
 	//Target to follow
-	public Animator animation;
+	//public Animator animation;
 
 	public override void Start(){
 		base.Start();
