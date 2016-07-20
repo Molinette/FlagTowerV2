@@ -9,11 +9,9 @@ public class GrenadePrototype : MonoBehaviour {
 	public GameObject explosionPrefab;
     private AudioSource source;
     public AudioClip bouncingSound;
-    private int groundLayer;
 
     // Use this for initialization
     void Start () {
-
         source = GetComponent<AudioSource>();
     }
 	
@@ -33,8 +31,7 @@ public class GrenadePrototype : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer == groundLayer)
-            source.PlayOneShot(bouncingSound, 1F);
+    	source.PlayOneShot(bouncingSound, 1F);
     }
 
 	void Explode(){

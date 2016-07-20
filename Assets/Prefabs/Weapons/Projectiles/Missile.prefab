@@ -11,8 +11,8 @@ GameObject:
   - 212: {fileID: 21239142}
   - 114: {fileID: 11471302}
   - 50: {fileID: 5054492}
-  - 61: {fileID: 6177014}
   - 82: {fileID: 8228490}
+  - 61: {fileID: 6130346}
   m_Layer: 14
   m_Name: Missile
   m_TagString: Untagged
@@ -44,8 +44,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194336}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
-  m_LocalPosition: {x: -0, y: -0.36, z: 0}
+  m_LocalPosition: {x: -0, y: -0.36, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_Children: []
   m_Father: {fileID: 439080}
   m_RootOrder: 0
@@ -56,8 +57,9 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.93303, y: 3.2801352, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.2025814, y: 18.79118, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 427580}
   m_Father: {fileID: 0}
@@ -79,7 +81,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &6177014
+--- !u!61 &6130346
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,7 +94,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2}
 --- !u!82 &8228490
 AudioSource:
   m_ObjectHideFlags: 1
@@ -237,7 +239,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.25
+      scalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -401,7 +403,7 @@ ParticleSystem:
         rgba: 4278224382
       minMaxState: 0
     startSize:
-      scalar: 0.5
+      scalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -417,7 +419,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.39999998
+          value: 0.75
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -549,7 +551,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 70
+      scalar: 1000
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -747,22 +749,22 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4280463590
+          rgba: 4278243071
         key1:
           serializedVersion: 2
-          rgba: 4280450790
+          rgba: 34302
         key2:
           serializedVersion: 2
-          rgba: 3951847
+          rgba: 18174
         key3:
           serializedVersion: 2
-          rgba: 4934475
+          rgba: 34302
         key4:
           serializedVersion: 2
           rgba: 10132122
         key5:
           serializedVersion: 2
-          rgba: 0
+          rgba: 10132122
         key6:
           serializedVersion: 2
           rgba: 0
@@ -770,23 +772,23 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 0
-        ctime1: 6168
-        ctime2: 12336
-        ctime3: 19853
-        ctime4: 26600
-        ctime5: 0
+        ctime1: 16191
+        ctime2: 26021
+        ctime3: 65535
+        ctime4: 65535
+        ctime5: 65535
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 11758
+        atime1: 65535
         atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
         atime6: 0
         atime7: 0
-        m_NumColorKeys: 5
-        m_NumAlphaKeys: 3
+        m_NumColorKeys: 4
+        m_NumAlphaKeys: 2
       minGradient:
         key0:
           serializedVersion: 2
@@ -1729,7 +1731,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2ee836d9ec420c4c9924f9aab640684, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f29452542b8a54640b8aa3c9b80ce487, type: 3}
   m_Color: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
   m_FlipX: 0
   m_FlipY: 0

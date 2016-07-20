@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class RangeWeapons : MonoBehaviour {
 
@@ -15,17 +17,36 @@ public class RangeWeapons : MonoBehaviour {
 	public float firingCooldown;
 	protected float firingTimer;
     protected int ammunition;
+	protected bool canShoot = true;
     public PlayerInventory playerInventory;
+	protected GameObject character;
 
 	public virtual void Start(){
 		source = GetComponent<AudioSource>();
 		firingTimer = firingCooldown;
         ammunition = 0;
+		character = GameObject.Find ("Character");
     }
 		
 	public virtual void Update(){
 	
 		firingTimer += Time.deltaTime;
+		if(EventSystem.current.IsPointerOverGameObject())
+		{
+			PointerEventData pointer = new PointerEventData(EventSystem.current);
+			pointer.position = Input.mousePosition;
+
+			List<RaycastResult> raycastResults = new List<RaycastResult>();
+			EventSystem.current.RaycastAll(pointer, raycastResults);
+
+			if(raycastResults.Count > 0)
+			{
+				if (raycastResults [0].gameObject.tag == "UIStopFire" || raycastResults [0].gameObject.tag == "InventoryButton")
+					canShoot = false;
+			}
+		}
+		else
+			canShoot = true;
 	}
 
 	public void PlayWeaponSound(){
