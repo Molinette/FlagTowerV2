@@ -14,11 +14,6 @@ public class ArmRotation : MonoBehaviour {
     {
         Vector3 direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
 		float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - startingAngle;
-		if(Input.mousePosition.x > Camera.main.WorldToScreenPoint(transform.position).x){
-			transform.eulerAngles = new Vector3(0, 0, rotationZ);
-		}
-		else{
-			transform.eulerAngles = new Vector3(0, 0, -rotationZ);
-		}
+		transform.eulerAngles = new Vector3(0, 0, rotationZ);
     }
 }
