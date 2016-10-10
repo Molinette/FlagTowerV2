@@ -30,10 +30,10 @@ public static class ConstantInventoryValues {
     public const int GRENADELAUNCHER_AMMO_TO_ADD = 10;
 
     public const int TURRET_COST = 500;
-    public const int MINE_COST = 200;
+    public const int MINE_COST = 300;
 
     public const int TURRET_SUPPLY_TO_ADD = 1;
-    public const int MINE_SUPPLY_TO_ADD = 5;
+    public const int MINE_SUPPLY_TO_ADD = 1;
 
     public const int TOWER_HEALTH_COST = 500;
 	

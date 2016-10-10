@@ -29,7 +29,7 @@ public class RangeWeapons : MonoBehaviour {
     }
 		
 	public virtual void Update(){
-	
+		source.pitch = Time.timeScale;
 		firingTimer += Time.deltaTime;
 		if(EventSystem.current.IsPointerOverGameObject())
 		{
@@ -47,6 +47,7 @@ public class RangeWeapons : MonoBehaviour {
 		}
 		else
 			canShoot = true;
+
 	}
 
 	public void PlayWeaponSound(){
@@ -63,4 +64,5 @@ public class RangeWeapons : MonoBehaviour {
             ammunition--;
         }
     }
+
 }

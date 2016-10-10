@@ -4,6 +4,7 @@ using System.Collections;
 public class Destroyer : Enemy {
 	
 	public float attackDelay;
+	public Animator animator;
 	private float nextAttackTime = 0;
 	private GameObject tower;
 	private bool isTowerDown  = false;
@@ -21,6 +22,9 @@ public class Destroyer : Enemy {
 	}
 
 	public void Update(){
+		if (rb.velocity.x < 0) {
+			transform.localScale = new Vector3 (-1, transform.localScale.y, transform.localScale.z);
+		}
 		if(attackState){
 			{
 				if(Time.time >= nextAttackTime){
@@ -43,6 +47,8 @@ public class Destroyer : Enemy {
 		if(other.CompareTag("TowerAttackingZone") && !isTowerDown){
 			movingState = MovingStates.Idle;
 			attackState = true;
+			nextAttackTime = Time.time + attackDelay;
+			animator.SetBool ("isAttacking", attackState);
 		}
 
 		if(other.CompareTag("Character")
@@ -56,6 +62,7 @@ public class Destroyer : Enemy {
 		if(other.CompareTag("TowerAttackingZone")){
 			movingState = MovingStates.FollowTarget;
 			attackState = false;
+			animator.SetBool ("isAttacking", attackState);
 		}
 	}
 

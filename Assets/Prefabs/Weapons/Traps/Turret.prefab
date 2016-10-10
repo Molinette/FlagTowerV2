@@ -43,6 +43,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.243315, y: -2.4903865, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 476068}
   m_Father: {fileID: 0}
@@ -56,6 +57,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 409490}
   m_RootOrder: 0
@@ -158,10 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f9e2124aec4534f9cf3b6c9e966de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 10
-  damage: 5
-  bulletSpeed: 25
-  firingDelay: 2
+  timer: 15
+  damage: 10
+  bulletSpeed: 50
+  firingDelay: 1
   firingPosition: {fileID: 476068}
   bullet: {fileID: 100708, guid: 3a8a29f4f1034be4580e7557ad19c60d, type: 2}
   weaponSound: {fileID: 8300000, guid: 549c1462d1fb1de4c96f3676b2a862f5, type: 3}

@@ -12,7 +12,7 @@ public class MenuScript : MonoBehaviour {
 	public Text highscore;
 	public int score = 0;
 	public int highScore = 0;
-	string highScoreKey = "HighScore";
+	string highScoreKey = "High Score";
    
 
 
@@ -21,23 +21,28 @@ public class MenuScript : MonoBehaviour {
 
 		startText = startText.GetComponent<Button> ();
 		exitText = exitText.GetComponent<Button> ();
-		highScore = PlayerPrefs.GetInt(highScoreKey,0);
+		if (!PlayerPrefs.HasKey(highScoreKey)) {
+			PlayerPrefs.SetInt(highScoreKey, 0);
+		}
+		score = PlayerPrefs.GetInt(highScoreKey);
 		quitMenu.SetActive(false);
-      
     }
 
 	void Update(){
-		
-		highscore.text = "highScore: " + score.ToString();
+		if (Input.GetKeyDown (KeyCode.R)) {
+			PlayerPrefs.SetInt(highScoreKey, 0);
+			score = PlayerPrefs.GetInt(highScoreKey);
+		}
+		highscore.text = "Highest wave : " + score.ToString();
 	}
 
 
 	void OnDisable(){
 
-		if (score > highScore) {
+		/*if (score > highScore) {
 			PlayerPrefs.SetInt(highScoreKey, score);
 			PlayerPrefs.Save();
-		}
+		}*/
 	}
 
 

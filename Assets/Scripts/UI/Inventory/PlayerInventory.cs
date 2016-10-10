@@ -17,7 +17,9 @@ public class PlayerInventory : MonoBehaviour {
 	private int money;
 	public int startingMoney = 0;
 	public float startingReward = 3000;
-	private float reward = 3000;
+	private float reward;
+	public float rewardIncrements;
+	private float lastReward;
     private int[] inventory = new int[8];
     private int[] itemPrices = new int[10];
     private GameObject[] inventoryButtons;
@@ -45,6 +47,8 @@ public class PlayerInventory : MonoBehaviour {
     public void Start()
     {
 		money = startingMoney;
+		reward = startingReward;
+		lastReward = reward;
         inventoryButtons = GameObject.FindGameObjectsWithTag("InventoryButton");
         Array.Sort(inventoryButtons, CompareObNames);
 
@@ -332,7 +336,8 @@ public class PlayerInventory : MonoBehaviour {
 
 	public void AddWaveMoney(){
 		money = money + (int)Mathf.Floor(reward);
-		reward = 3000;
+		reward = lastReward + rewardIncrements;
+		lastReward = reward;
 		refreshRewardText();
 		refreshMoneyText();
 	}

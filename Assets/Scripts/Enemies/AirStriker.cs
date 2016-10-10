@@ -68,6 +68,7 @@ public class AirStriker : Enemy {
 			return 1;
 		}
 		else{
+			gameManager.AddEnemy();
 			return 0;
 		}
 	}

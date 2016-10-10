@@ -16,12 +16,13 @@ public class AirStrikerBomb : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		timer -= Time.deltaTime;
+		/*timer -= Time.deltaTime;
 		if(timer <= 0){
 			Explode();
 			GameObject.Instantiate(explosionPrefab,transform.position,Quaternion.Euler(explosionPrefab.transform.eulerAngles));
 			Destroy(gameObject);
 		}
+		*/
 	}
 
 	void Explode(){
@@ -31,5 +32,10 @@ public class AirStrikerBomb : MonoBehaviour {
 				collider.transform.parent.GetComponent<TowerDownScript>().changeHealth(-damage);
 			}
 		}
+	}
+	void OnCollisionEnter2D(Collision2D col){
+		Explode();
+		GameObject.Instantiate(explosionPrefab,transform.position,Quaternion.Euler(explosionPrefab.transform.eulerAngles));
+		Destroy(gameObject);
 	}
 }

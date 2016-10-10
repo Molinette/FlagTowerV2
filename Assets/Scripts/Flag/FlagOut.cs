@@ -7,6 +7,7 @@ public class FlagOut : MonoBehaviour {
 
 	public Text gameOverText;
 	public float pauseDuration;
+	public GameManager gameManager;
 	private bool hasAppeared;
 
 	void Start(){
@@ -23,6 +24,7 @@ public class FlagOut : MonoBehaviour {
 		if (hasAppeared) {
 			if (!gameObject.GetComponent<Renderer> ().isVisible){
 				gameOverText.text = "GameOver!";
+				PlayerPrefs.SetInt("High score", gameManager.GetWaveCount()-1);
 				StartCoroutine (Pause (pauseDuration));
 				Time.timeScale = 0f;
 			}
