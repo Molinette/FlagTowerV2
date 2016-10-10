@@ -23,9 +23,7 @@ public class GrenadeLauncher : RangeWeapons {
 			PlayWeaponSound ();
 			//Instance the bullet and give it an initial speed in the direction of the mouse
 			projectileInstance = (GameObject)Instantiate(projectile, firingPosition.position, firingPosition.rotation);
-			if (character.transform.localScale.x < 0) {
-				projectileInstance.transform.eulerAngles = new Vector3 (projectileInstance.transform.eulerAngles.x, projectileInstance.transform.eulerAngles.y, -projectileInstance.transform.eulerAngles.z);
-			}
+			projectileInstance.transform.eulerAngles = new Vector3 (projectileInstance.transform.eulerAngles.x, projectileInstance.transform.eulerAngles.y, projectileInstance.transform.eulerAngles.z);
 			projectileInstance.GetComponent<Rigidbody2D>().AddForce(shootingDirection.normalized * throwingForce,ForceMode2D.Impulse);
             //projectileInstance.GetComponent<Projectile>().SetDamage(damage);
 
